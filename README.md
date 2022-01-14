@@ -2,9 +2,9 @@
 SE Project - Spring 2022
 
 ## Team Members
-Medha Naik
-HimaKireeti Konda
-Santosh Maturi
+Medha Naik, 
+HimaKireeti Konda, 
+Santosh Maturi, 
 Sanjana Aluri
 
 ## Technology Stack
