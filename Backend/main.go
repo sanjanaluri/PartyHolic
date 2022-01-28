@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/himakireeti/PartyHolic/geo"
-	"github.com/himakireeti/PartyHolic/server"
+	"./pkg/utils/geo"
+	"./pkg/server"
 )
 
 func main() {
