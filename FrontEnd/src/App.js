@@ -1,7 +1,7 @@
 import React from "react";
-import Homepage from './pages/HomePage'
+import Homepage from "./pages/HomePage";
 import About from "./pages/AboutPage";
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 class App extends React.Component {
@@ -48,26 +48,21 @@ class App extends React.Component {
         alert("An unknown error occurred.");
         break;
     }
-
-
   }
 
   render() {
     return (
       <div className="App">
-      <Router>
-      <Routes>
-        <Route exact path="/" component={<Homepage/>} element={<Homepage/>} /> 
-        <Route exact path="/about" component={<About/>} element={<About/>}/>
-
-      </Routes>
-    </Router>
-            {this.getLocation()}
-            {/* <button onClick={this.getLocation}>Get Coordinates</button> */}
-            <p>Latitude: {this.state.latitude}</p>
-            <p>Longitude: {this.state.longitude}</p>
-    
-          </div>
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<Homepage />} />
+            <Route exact path="/about" element={<About />} />
+          </Routes>
+        </Router>
+        {this.getLocation()}
+        <p>Latitude: {this.state.latitude}</p>
+        <p>Longitude: {this.state.longitude}</p>
+      </div>
     );
   }
 }
