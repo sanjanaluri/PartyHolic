@@ -1,15 +1,19 @@
 package main
 
 import (
-	"database/database"
 	"controllers/controllers"
+	"database/database"
+
 	"github.com/gin-gonic/gin"
-	//"github.com/himakireeti/PartyHolic1/geo"
 
 	"geo/geo"
 )
 
 func main() {
+
+	geo.GeoAddress("Gainesvile")
+
+	database.Database_setup()
 	r := gin.Default()
 
 	// API v1
@@ -23,10 +27,13 @@ func main() {
 	// 	// v1.OPTIONS("person", options)
 	// }
 
-	r.GET("/person", controllers.GetPersons)
-	geo.GeoAddress("Gainesvile")
+	r.GET("/addresses", controllers.GetAddresses)
+	r.GET("/addresses/:address_id", controllers.GetAddressById)
 
-	database.Database_setup()
+	r.POST("/addAddress", controllers.AddAddress)
+
+	r.POST("/newUser", controllers.AddUser)
+	r.POST("/newParty", controllers.AddParty)
 
 	// By default it serves on :8080 unless a
 	// PORT environment variable was defined.

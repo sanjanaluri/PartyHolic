@@ -25,13 +25,9 @@ func Database_setup() {
 
 	db, err := gorm.Open(sqlite.Open("partyholic.db"), &gorm.Config{})
 	checkErr(err, "Database Created")
-	fmt.Println(db)
 
 	db.Debug().AutoMigrate(&models.Addresses{})
-
-	// db.DropTableIfExists(&models.Addresses{})
-
-	// db.Debug().CreateTable(&models.Addresses{})
+	db.Debug().AutoMigrate(&models.Users{})
 
 	DB = db
 
