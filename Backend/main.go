@@ -2,9 +2,9 @@ package main
 
 import (
 	"database/database"
-
+	"controllers/controllers"
 	"github.com/gin-gonic/gin"
-	"github.com/himakireeti/PartyHolic1/geo"
+	//"github.com/himakireeti/PartyHolic1/geo"
 
 	"geo/geo"
 )
@@ -23,7 +23,7 @@ func main() {
 	// 	// v1.OPTIONS("person", options)
 	// }
 
-	r.Get("/person", controllers.getPersons)
+	r.GET("/person", controllers.GetPersons)
 	geo.GeoAddress("Gainesvile")
 
 	database.Database_setup()

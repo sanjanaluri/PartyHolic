@@ -31,7 +31,7 @@ require (
 	models v0.0.0 // indirect
 
 	geo v0.0.0
-	contollers v0.0.0
+	controllers v0.0.0
 
 )
 

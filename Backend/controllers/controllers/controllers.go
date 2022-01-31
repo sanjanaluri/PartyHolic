@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func getPersons(c *gin.Context) {
+func GetPersons(c *gin.Context) {
 	var address models.Addresses
 	database.DB.Find(&address)
 	c.JSON(http.StatusOK, gin.H{"message": &address})
