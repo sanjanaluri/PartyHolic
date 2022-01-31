@@ -33,7 +33,7 @@ func main() {
 	r.POST("/addAddress", controllers.AddAddress)
 
 	r.POST("/newUser", controllers.AddUser)
-	r.POST("/newParty", controllers.AddParty)
+	// r.POST("/newParty", controllers.AddParty)
 
 	// By default it serves on :8080 unless a
 	// PORT environment variable was defined.
