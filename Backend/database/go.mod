@@ -1,3 +1,3 @@
-module database
+module github.com/himakireeti/PartyHolic/Backend/database
 
-go 1.16
+go 1.17
