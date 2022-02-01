@@ -94,6 +94,9 @@ code {
   align-items: center;
   margin-bottom: 1rem;
   position: relative;
+  float: left;
+  padding-left: 30px;
+  padding-bottom: 15px;
 }
 
 .categoryListingLink {

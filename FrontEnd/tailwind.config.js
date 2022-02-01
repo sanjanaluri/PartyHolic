@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./src/pages/home.js"],
+  content: ["./src/pages/home.js","./src/components/ListingParties.js"],
   theme: {
     extend: {},
   },

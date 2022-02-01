@@ -10,9 +10,9 @@ function PartyList() {
           <p className='pageHeader'>Parties Around you </p>
         </header>
             <main>
-              <ul className='categoryListings'>
+              <div>
                   <ListingParties/> 
-              </ul>
+              </div>
             </main>
       </div>
     )

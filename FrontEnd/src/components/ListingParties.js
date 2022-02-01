@@ -1,6 +1,54 @@
+import '../index.css'
+
 function ListingParties() {
   const partyDataa = [
     {
+      id: "1",
+      title: "ABC Party",
+      img: "assets/Image3.jpg",
+      hostname: "Ravi",
+      distance: "0.6 miles away",
+      count: "20",
+    },
+    {
+      id: "2",
+      title: "HouseParty",
+      img: "assets/Image4.jpg",
+      hostname: "John",
+      distance: "0.2 miles away",
+      count: "50",
+    },
+    {
+      id: "3",
+      title: "All Night Party",
+      img: "assets/Image5.jpg",
+      hostname: "Lisa",
+      distance: "0.1 miles away",
+      count: "10",
+    },{
+      id: "1",
+      title: "ABC Party",
+      img: "assets/Image3.jpg",
+      hostname: "Ravi",
+      distance: "0.6 miles away",
+      count: "20",
+    },
+    {
+      id: "2",
+      title: "HouseParty",
+      img: "assets/Image4.jpg",
+      hostname: "John",
+      distance: "0.2 miles away",
+      count: "50",
+    },
+    {
+      id: "3",
+      title: "All Night Party",
+      img: "assets/Image5.jpg",
+      hostname: "Lisa",
+      distance: "0.1 miles away",
+      count: "10",
+    },{
       id: "1",
       title: "ABC Party",
       img: "assets/Image3.jpg",
@@ -30,7 +78,7 @@ function ListingParties() {
     <section>
       {partyDataa.map((partyData) => {
         return (
-          <li className="categoryListing" key={partyData.id}>
+          <div className="categoryListing" key={partyData.id}>
             <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
               <a href="#" className="w-full block h-full">
                 <img
@@ -62,7 +110,7 @@ function ListingParties() {
                 </div>
               </a>
             </div>
-          </li>
+          </div>              
         );
       })}
     </section>
