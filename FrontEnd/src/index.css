@@ -14,14 +14,11 @@ code {
     monospace;
 }
 
-<<<<<<< Updated upstream
 .pageHeader {
   font-size: 2rem;
   font-weight: 800;
 }
 
-=======
->>>>>>> Stashed changes
 .home {
   margin: 1rem;
 }
@@ -80,8 +77,6 @@ code {
 .about{
   margin-top: 3rem;
 }
-<<<<<<< Updated upstream
-=======
 
 .category {
   margin-bottom: 10rem;
@@ -262,4 +257,3 @@ code {
   padding: 0.5rem 1rem;
   font-weight: 600;
 }
->>>>>>> Stashed changes
