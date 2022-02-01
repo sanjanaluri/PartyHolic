@@ -1,12 +1,13 @@
 package main
 
 import (
-	"controllers/controllers"
 	"database/database"
+	"geo/geo"
 
 	"github.com/gin-gonic/gin"
 
-	"geo/geo"
+	"controllers/controllers"
+	"database/database"
 )
 
 func main() {
