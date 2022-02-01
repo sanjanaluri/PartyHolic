@@ -22,8 +22,8 @@ const Navbar = () => {
           <NavLink to='/about' activeStyle>
             About
           </NavLink>
-          <NavLink to='/services' activeStyle>
-            Services
+          <NavLink to='/partylist' activeStyle>
+            PartyList
           </NavLink>
           <NavLink to='/contact-us' activeStyle>
             Contact Us
