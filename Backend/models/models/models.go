@@ -42,3 +42,8 @@ type Parties struct {
 	Longitude float64 `json: "Longitude"`
 	Latitude  float64 `json:"Latitude"`
 }
+
+type Location struct {
+	Longitude float64 `json: "Longitude"`
+	Latitude  float64 `json:"Latitude"`
+}
