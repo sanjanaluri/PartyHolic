@@ -42,7 +42,7 @@ func AddAddress(c *gin.Context) {
 	}
 	database.DB.Create(&address)
 
-	c.JSON(http.StatusOK, gin.H{"message": address})
+	c.JSON(http.StatusOK, gin.H{"message": input})
 }
 
 func AddUser(c *gin.Context) {
@@ -101,8 +101,17 @@ func AddParty(c *gin.Context) {
 
 }
 
-func updatePerson(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "updatePerson Called"})
+func GetParties(c *gin.Context) {
+	var input models.Location
+	// var party models.Parties
+
+	// fmt.Println(input.Longitude, input.Latitude)
+	// database.DB.Raw("SELECT *,(((acos(sin((?*pi()/180)) * sin((dest.latitude*pi()/180))+cos((?*pi()/180))*cos((dest.latitude*pi()/180))*cos(((?-dest.longitude)*pi()/180))))*180/pi())*60*1.1515*1609.344) as distance FROM parties AS dest HAVING distance < ? ORDER BY distance ASC LIMIT 1;", input.Latitude, input.Latitude, input.Longitude, 10000000000000).Scan(&party)
+
+	// fmt.Println(party)
+
+	c.JSON(http.StatusOK, gin.H{"input": input})
+
 }
 
 func deletePerson(c *gin.Context) {
