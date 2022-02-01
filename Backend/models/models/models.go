@@ -39,11 +39,11 @@ type Parties struct {
 	Image_id       string `json:"Image_id"`
 	Attendee_count int    `json:"Attendee_count"`
 
-	Longitude float64 `json: "Longitude"`
-	Latitude  float64 `json:"Latitude"`
+	Longitude float64 `json:"Longitude"`
+	Latitude  float32 `json:"Latitude"`
 }
 
 type Location struct {
-	Longitude float64 `json: "Longitude"`
-	Latitude  float64 `json:"Latitude"`
+	Longitude float64 `json:"Longitude"`
+	Latitude  float32 `json:"Latitude"`
 }
