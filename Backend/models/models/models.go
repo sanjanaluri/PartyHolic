@@ -1,5 +1,7 @@
 package models
 
+import "time"
+
 type Addresses struct {
 	Address_id int     `gorm:"primary_key;type:int;" `
 	Lane_one   string  `json:"Lane_one"`
@@ -15,24 +17,39 @@ type Users struct {
 	User_id    int    `gorm:"primary_key;type:int;" json:"User_id"`
 	First_name string `json:"First_name"`
 	Last_name  string `json:"Last_name"`
-	Address_id uint64
-	Address    Addresses `gorm:"ForeignKey:Address_id" json:"Address"`
-	Gender     string    `json:"Gender"`
-	Bio        string    `json:"Bio"`
+	Address_id uint64 `json:"Address_id"`
+	// Address    Addresses `gorm:"ForeignKey:Address_id" json:"Address"`
+	Gender string `json:"Gender"`
+	Bio    string `json:"Bio"`
 }
 
+// type Parties_raw struct {
+// 	Party_id   int    `gorm:"primary_key;type:int;" json:"Party_id"`
+// 	Party_name string `json:"Party_name"`
+
+// 	Host_id int `json:"Host_id"`
+
+// 	Address Addresses `json:"Address"`
+
+// 	Start_time time.Time `json:"Start_time"`
+// 	End_time   time.Time `json:"End_time"`
+
+// 	Tags        string `json:"Tags"`
+// 	Description string `json:"Description"`
+
+// 	Image_id       string `json:"Image_id"`
+// 	Attendee_count int    `json:"Attendee_count"`
+// }
 type Parties struct {
 	Party_id   int    `gorm:"primary_key;type:int;" json:"Party_id"`
 	Party_name string `json:"Party_name"`
 
 	Host_id int `json:"Host_id"`
-	// User    Users  `gorm:"ForeignKey:User_id"`
 
-	Address_id int `json:"Address_id"`
-	// Address    Addresses `gorm:"ForeignKey:Address_id"`
+	Address_id Addresses `json:"Address_id"`
 
-	Start_time string `json:"Start_time"`
-	End_time   string `json:"End_time"`
+	Start_time time.Time `json:"Start_time"`
+	End_time   time.Time `json:"End_time"`
 
 	Tags        string `json:"Tags"`
 	Description string `json:"Description"`

@@ -56,7 +56,7 @@ func AddUser(c *gin.Context) {
 	user := models.Users{User_id: input.User_id,
 		First_name: input.First_name,
 		Last_name:  input.Last_name,
-		Address:    input.Address,
+		Address_id: input.Address_id,
 		Gender:     input.Gender,
 		Bio:        input.Bio,
 	}
@@ -68,32 +68,36 @@ func AddUser(c *gin.Context) {
 }
 
 func AddParty(c *gin.Context) {
-	var input models.Parties
+	var input models.Parties_raw
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
-	// start, _ := time.Parse(input.Start_time, "2006-01-02T15:04:05.999999-07:00")
+	// new_address_id = //database fetch
 
-	// end, _ := time.Parse(input.End_time, "2006-01-02T15:04:05.999999-07:00")
+	party := &models.Parties{
 
-	party := models.Parties{
 		Party_name: input.Party_name,
-
-		Host_id: input.Host_id,
-
+		Host_id:    input.Host_id,
 		Address_id: input.Address_id,
-
-		Start_time: input.Start_time,
-		End_time:   input.End_time,
 
 		Tags:        input.Tags,
 		Description: input.Description,
 
+		Start_time: input.Start_time,
+		End_time:   input.End_time,
+
 		Image_id:       input.Image_id,
 		Attendee_count: input.Attendee_count,
+
+		Latitude:  input.Latitude,
+		Longitude: input.Longitude,
 	}
 
 	database.DB.Create(&party)
 
-	c.JSON(http.StatusOK, gin.H{"message": input})
+	c.JSON(http.StatusOK, gin.H{"message": party})
 
 }
 
