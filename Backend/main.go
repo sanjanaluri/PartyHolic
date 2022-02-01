@@ -1,9 +1,10 @@
 package main
 
 import (
-	"net/http"
 	"database/database"
 	"geo/geo"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
