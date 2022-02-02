@@ -7,6 +7,8 @@ import About from './pages/about';
 import Contact from './pages/contact';
 import SignUp from './pages/signup';
 import PartyList from "./pages/PartyList";
+import {EventsProvider} from './context/EventsContext'
+import EventsContext from "./context/EventsContext";
 
 
 function App(props) {
@@ -23,30 +25,19 @@ function App(props) {
   },[]);
 
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path='/' exact element={<Home />} />
-        <Route path='/about' element={<About/>} />
-        <Route path='/partylist' element={<PartyList/>} />
-        <Route path='/contact-us' element={<Contact/>} />
-        <Route path='/sign-up' element={<SignUp/>} />
-      </Routes>
-    </Router>
+    
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' exact element={<Home />} />
+          <Route path='/about' element={<About/>} />
+          <Route path='/partylist' element={<PartyList/>} />
+          <Route path='/contact-us' element={<Contact/>} />
+          <Route path='/sign-up' element={<SignUp/>} />
+        </Routes>
+      </Router>
   );
 }
 
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       latitude: null,
-//       longitude: null,
-//     };
-//     this.getLocation = this.getLocation.bind(this);
-//     this.getCoordinates = this.getCoordinates.bind(this);
-//   }
-
-// }
 
 export default App;

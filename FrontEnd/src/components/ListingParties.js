@@ -1,11 +1,11 @@
-import '../index.css'
+import "../index.css";
 
 function ListingParties() {
   const partyDataa = [
     {
       id: "1",
       title: "ABC Party",
-      img: "assets/Image3.jpg",
+      img: "assets/Image1.jpg",
       hostname: "Ravi",
       distance: "0.6 miles away",
       count: "20",
@@ -13,7 +13,7 @@ function ListingParties() {
     {
       id: "2",
       title: "HouseParty",
-      img: "assets/Image4.jpg",
+      img: "assets/Image2.jpg",
       hostname: "John",
       distance: "0.2 miles away",
       count: "50",
@@ -21,53 +21,55 @@ function ListingParties() {
     {
       id: "3",
       title: "All Night Party",
-      img: "assets/Image5.jpg",
+      img: "assets/Image3.jpg",
       hostname: "Lisa",
       distance: "0.1 miles away",
       count: "10",
-    },{
-      id: "1",
+    },
+    {
+      id: "4",
       title: "ABC Party",
-      img: "assets/Image3.jpg",
+      img: "assets/Image4.jpg",
       hostname: "Ravi",
       distance: "0.6 miles away",
       count: "20",
     },
     {
-      id: "2",
+      id: "5",
       title: "HouseParty",
-      img: "assets/Image4.jpg",
+      img: "assets/Image5.jpg",
       hostname: "John",
       distance: "0.2 miles away",
       count: "50",
     },
     {
-      id: "3",
+      id: "6",
       title: "All Night Party",
-      img: "assets/Image5.jpg",
+      img: "assets/Image6.jpg",
       hostname: "Lisa",
       distance: "0.1 miles away",
       count: "10",
-    },{
-      id: "1",
+    },
+    {
+      id: "7",
       title: "ABC Party",
-      img: "assets/Image3.jpg",
+      img: "assets/Image7.jpg",
       hostname: "Ravi",
       distance: "0.6 miles away",
       count: "20",
     },
     {
-      id: "2",
+      id: "8",
       title: "HouseParty",
-      img: "assets/Image4.jpg",
+      img: "assets/Image8.jpg",
       hostname: "John",
       distance: "0.2 miles away",
       count: "50",
     },
     {
-      id: "3",
+      id: "9",
       title: "All Night Party",
-      img: "assets/Image5.jpg",
+      img: "assets/Image9.jpg",
       hostname: "Lisa",
       distance: "0.1 miles away",
       count: "10",
@@ -86,7 +88,7 @@ function ListingParties() {
                   src={partyData.img}
                   className="max-h-40 w-full object-cover"
                 />
-                <div class="bg-white dark:bg-gray-800 w-full p-4">
+                <div class="bg-white dark:bg-gray-700 w-full p-4">
                   <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
                     {partyData.title}
                   </p>
@@ -110,7 +112,7 @@ function ListingParties() {
                 </div>
               </a>
             </div>
-          </div>              
+          </div>
         );
       })}
     </section>
