@@ -15,7 +15,7 @@ const Navbar = () => {
       <Nav>
         <NavLink to="/">
           <GiPartyHat size={40} />
-          <div class="text-3xl font-sans font-semibold">PartyHolic</div>
+          <div className="text-3xl font-sans font-semibold">PartyHolic</div>
         </NavLink>
         <Bars />
         <NavMenu>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import ZipCode from "../components/Zipcode";
 import Geolocation from "../components/Geolocation";
+import Navbar from "../components/Navbar";
 
 function Home(props) {
   const [zipCodeOpen, setZipCodeOpen] = useState(false);
@@ -30,19 +31,23 @@ function Home(props) {
   }
 
   return (
-    <div className="home">
-      <main>
-        <button onClick={openZipCodeModal}>Press for zipcode</button>
-        {zipCodeOpen && <ZipCode onEnter={closeZipCodeModal} />}
-        {geoLocOpen && <Geolocation onEnter={closeGeoLocModal} />}
-        <div className="homeCategories">
-          <img src='assets/Image1.jpg' alt="rent" className="homeCategoryImg" />
-        </div>
-        <div>
-          <p>. </p>
-          <p>. </p>
-        </div>
-      </main>
+    <div className="container ">
+      <div>
+        <main>
+            <img
+              src="assets/127045.jpg"
+              alt="rent"
+              className="object-cover w-screen h-screen"
+            />
+          <button onClick={openZipCodeModal}>Press for zipcode</button>
+          {zipCodeOpen && <ZipCode onEnter={closeZipCodeModal} />}
+          {geoLocOpen && <Geolocation onEnter={closeGeoLocModal} />}
+          <div>
+            <p>. </p>
+            <p>. </p>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

@@ -47,17 +47,20 @@ function App(props) {
   };
 
   return (
-    <Router>
-      <Navbar />
-      <button onClick={Submithandler}>Submit</button>
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/partylist" element={<PartyList />} />
-        <Route path="/contact-us" element={<Contact />} />
-        <Route path="/sign-up" element={<SignUp />} />
-      </Routes>
-    </Router>
+    <EventsProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/partylist" element={<PartyList />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/sign-up" element={<SignUp />} />
+        </Routes>
+
+        <button onClick={Submithandler}>Submit</button>
+      </Router>
+    </EventsProvider>
   );
 }
 

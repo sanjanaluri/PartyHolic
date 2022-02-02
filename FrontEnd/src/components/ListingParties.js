@@ -80,32 +80,32 @@ function ListingParties() {
     <section>
       {partyDataa.map((partyData) => {
         return (
-          <div className="categoryListing" key={partyData.id}>
-            <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
+          <div className="categoryListing " key={partyData.id}>
+            <div className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
               <a href="#" className="w-full block h-full">
                 <img
                   alt="blog photo"
                   src={partyData.img}
                   className="max-h-40 w-full object-cover"
                 />
-                <div class="bg-white dark:bg-gray-700 w-full p-4">
-                  <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
+                <div className="bg-white dark:bg-gray-700 w-full p-4">
+                  <p className="text-gray-800 dark:text-white text-xl font-medium mb-2">
                     {partyData.title}
                   </p>
-                  <p class="text-gray-900 dark:text-gray-300 font-light text-md">
+                  <p className="text-gray-900 dark:text-gray-300 font-light text-md">
                     Distance: {partyData.distance}
                   </p>
-                  <p class="text-gray-900 dark:text-gray-300 font-light text-md">
+                  <p className="text-gray-900 dark:text-gray-300 font-light text-md">
                     Host: {partyData.hostname}
                   </p>
-                  <p class="text-gray-900 dark:text-gray-300 font-light text-md">
+                  <p className="text-gray-900 dark:text-gray-300 font-light text-md">
                     People Interested: {partyData.count}
                   </p>
-                  <div class="flex flex-wrap justify-starts items-center mt-4">
-                    <div class="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
+                  <div className="flex flex-wrap justify-starts items-center mt-4">
+                    <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
                       #Free
                     </div>
-                    <div class="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
+                    <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
                       #BringYourOwnBooze
                     </div>
                   </div>
