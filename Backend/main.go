@@ -16,6 +16,14 @@ func main() {
 	database.Database_setup()
 	r := gin.Default()
 
+	r.GET("/api/addresses", controllers.GetAddresses)
+	r.GET("/api/addresses/:address_id", controllers.GetAddressById)
+
+	r.POST("/api/addAddress", controllers.AddAddress)
+
+	r.POST("/api/newUser", controllers.AddUser)
+	r.POST("/api/newParty", controllers.AddParty)
+
 	r.POST("/api/parties", controllers.GetParties)
 
 	// PORT environment variable was defined.
