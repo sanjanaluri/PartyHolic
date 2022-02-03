@@ -18,7 +18,6 @@ func main() {
 
 	r.POST("/api/parties", controllers.GetParties)
 
-	// By default it serves on :8080 unless a
 	// PORT environment variable was defined.
 	r.Run()
 
