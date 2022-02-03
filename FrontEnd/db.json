@@ -99,5 +99,6 @@
       "alcohol": true,
       "over_18": true
     }
-  ]
+  ],
+  "zipcodeList": {}
 }

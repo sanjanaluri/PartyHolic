@@ -266,3 +266,45 @@ code {
   padding: 0.5rem 1rem;
   font-weight: 600;
 }
+
+.modal{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color:  rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content{
+  width: 300px;
+  background-color: #ffffff;
+}
+
+.modal-header,.modal-footer{
+  padding: 10px;
+}
+
+.modal-title{
+  margin: 0;
+}
+
+.modal-body{
+  padding: 10px;
+ 
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 3px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  justify-content: center;
+}
