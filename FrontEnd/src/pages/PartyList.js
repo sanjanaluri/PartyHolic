@@ -6,14 +6,9 @@ function PartyList() {
     
     return (
       <div className='category'>
-        <header>
-          <p className='pageHeader'>Parties Around you </p>
-        </header>
-            <main>
-              <ul className='categoryListings'>
+              <div>
                   <ListingParties/> 
-              </ul>
-            </main>
+              </div>
       </div>
     )
   }

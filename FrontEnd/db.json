@@ -1,0 +1,20 @@
+{
+  "eventsList": [
+    {
+      "id": "1",
+      "title": "ABC Party",
+      "img": "assets/Image1.jpg",
+      "hostname": "Ravi",
+      "distance": "0.6 miles away",
+      "count": "20"
+    },
+    {
+      "id": "2",
+      "title": "HouseParty",
+      "img": "assets/Image2.jpg",
+      "hostname": "John",
+      "distance": "0.2 miles away",
+      "count": "50"
+    }
+  ]
+}

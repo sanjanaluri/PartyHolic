@@ -1,6 +1,6 @@
-import { FaBars } from 'react-icons/fa';
-import { NavLink as Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { FaBars } from "react-icons/fa";
+import { NavLink as Link } from "react-router-dom";
+import styled from "styled-components";
 
 export const Nav = styled.nav`
   background: #000;
@@ -9,6 +9,9 @@ export const Nav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
+  position: fixed;
+  top:0;
+  width: 100%;
 `;
 
 export const NavLink = styled(Link)`
