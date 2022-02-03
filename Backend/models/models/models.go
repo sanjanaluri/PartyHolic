@@ -52,6 +52,8 @@ type Party struct {
 
 	Distance float64 `json:"distance_miles"`
 
+	Image_id string `json:"Image_id"`
+
 	// Tags []Tag `json:"tags"`
 }
 
