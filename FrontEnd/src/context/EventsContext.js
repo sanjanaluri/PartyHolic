@@ -32,10 +32,18 @@ useEffect(() => {
   });
 }, []);
 
+
+
 useEffect(() => {
-  fetch('http://localhost:5000/eventsList').then(res =>{
+  fetch('http://localhost:8080/api/parties',  {
+    method:'POST',
+    headers:{ 'Content-Type':'appplication/json'},
+    body:JSON.stringify(coordinates)
+}
+).then(res =>{
     return res.json();
   }).then(data =>{
+    console.log(data)
     setEventsList(data);
   })
 },[gotLocation]);
