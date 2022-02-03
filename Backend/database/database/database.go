@@ -2,76 +2,48 @@ package database
 
 import (
 	"fmt"
+	"models/models"
 
-	"github.com/jinzhu/gorm"
-	_ "github.com/mattn/go-sqlite3"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
-func checkErr(err error, sucess_message string) {
+func checkErr(err error, error_message string) {
 	if err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Println(sucess_message)
+		fmt.Println(err, " ", error_message)
 	}
 }
 
-type Addresses struct {
-	address_id int `gorm:"primary_key;type:int;"`
-	lane_one   string
-	lane_two   string
-	city       string
-	state      string
-	country    string
-	latitude   float64
-	longitude  float64
-}
+var DB *gorm.DB
 
-type Users struct {
-	user_id    int `gorm:"primary_key;type:int;"`
-	first_name string
-	last_name  string
-	address_id Addresses `gorm:"ForeignKey:address_id"`
-	gender     string
-	bio        string
-}
-
-type parties struct {
-	party_id   int `gorm:"primary_key;type:int;"`
-	party_name string
-	host_id    Users     `gorm:"ForeignKey:address_id"`
-	address_id Addresses `gorm:"ForeignKey:address_id"`
-	start_time string
-	end_time   string
-
-	tags        string
-	description string
-
-	image_id       string
-	attendee_count string
+func GetDB() *gorm.DB {
+	Database_setup()
+	return DB
 }
 
 func Database_setup() {
 
-	db, err := gorm.Open("sqlite3", "./partyholic.db")
+	dsn := "root:@tcp(127.0.0.1:3306)/partyholic?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	checkErr(err, "Database Created")
-	defer db.Close()
 
-	db.DropTableIfExists(&Addresses{})
-	db.Debug().AutoMigrate(&Addresses{})
+	// if DB.Migrator().HasTable(&models.Addresses{}) {
+	// 	DB.Migrator().DropTable(&models.Addresses{})
+	// }
 
-	// db.Debug().CreateTable(&Addresses{})
+	// if DB.Migrator().HasTable(&models.Users{}) {
+	// 	DB.Migrator().DropTable(&models.Users{})
+	// }
 
-	address := Addresses{
-		address_id: 1,
-		lane_one:   "one",
-		lane_two:   "two",
-		city:       "gainesville",
-		state:      "FL",
-		country:    "USA",
-		latitude:   29.654,
-		longitude:  -89.64,
-	}
-	db.Debug().Create(&address)
-	db.Debug().Save(&address)
+	// if DB.Migrator().HasTable(&models.Parties{}) {
+	// 	DB.Migrator().DropTable(&models.Parties{})
+	// }
+
+	// if DB.Migrator().HasTable(&models.Location{}) {
+	// 	DB.Migrator().DropTable(&models.Location{})
+	// }
+
+	db.Debug().AutoMigrate(&models.Addresses{}, &models.Users{}, &models.Parties{}, &models.Location{})
+	DB = db
 
 }
