@@ -31,7 +31,7 @@ function Home(props) {
   }
 
   return (
-    <div className="container ">
+    <div className="container">
       <div>
         <main>
             <img
