@@ -27,11 +27,15 @@ require (
 )
 
 require (
-	database v0.0.0
-	models v0.0.0 // indirect
-
-	geo v0.0.0
 	controllers v0.0.0
+	database v0.0.0
+	geo v0.0.0
+	github.com/erikstmartin/go-testdb v0.0.0-20160219214506-8d10e4a1bae5 // indirect
+	github.com/kellydunn/golang-geo v0.7.0 // indirect
+	github.com/kylelemons/go-gypsy v1.0.0 // indirect
+	github.com/lib/pq v1.10.4 // indirect
+	github.com/ziutek/mymysql v1.5.4 // indirect
+	models v0.0.0 // indirect
 
 )
 
@@ -40,4 +44,5 @@ replace geo v0.0.0 => ./geo/
 replace database v0.0.0 => ./database/
 
 replace models v0.0.0 => ./models/
+
 replace controllers v0.0.0 => ./controllers/

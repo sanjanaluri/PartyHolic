@@ -37,13 +37,36 @@ type Parties struct {
 	Description string `json:"Description"`
 
 	Image_id       string `json:"Image_id"`
-	Attendee_count int    `json:"Attendee_count"`
+	Attendee_count int    `json:"interested_people"`
 
 	Longitude float64 `json:"Longitude"`
 	Latitude  float32 `json:"Latitude"`
 }
 
+type Party struct {
+	Party_name string `json:"title"`
+
+	Host_name string `json:"host_name"`
+
+	Attendee_count int `json:"interested_people"`
+
+	Distance float64 `json:"distance_meters"`
+
+	// Tags []Tag `json:"tags"`
+}
+
 type Location struct {
-	Longitude float64 `json:"Longitude"`
-	Latitude  float32 `json:"Latitude"`
+	Longitude float64 `json:"longitude"`
+	Latitude  float32 `json:"latitude"`
+}
+
+type PartiesRequest struct {
+	Location      Location `json:"location"`
+	User_ID       string   `json:"user_id"`
+	Radius_Meters float64  `json:"radius_miles"`
+}
+
+type Tag struct {
+	Tag_name  string `json:"name"`
+	Tag_value string `json:"value"`
 }
