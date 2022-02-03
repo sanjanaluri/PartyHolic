@@ -16,7 +16,7 @@ func main() {
 
 	database.Database_setup()
 	r := gin.Default()
-
+	r.Static("/images", "./images")
 	r.Use(static.Serve("/", static.LocalFile("../Frontend/build", true)))
 
 	r.GET("/api/addresses", controllers.GetAddresses)
