@@ -1,82 +1,46 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
 const EventsContext = createContext();
 
 export const EventsProvider = ({ children }) => {
-  const [eventsList, setEventsList] = useState([
-    {
-      id: "1",
-      title: "ABC Party",
-      img: "assets/Image1.jpg",
-      hostname: "Ravi",
-      distance: "0.6 miles away",
-      count: "20",
-    },
-    {
-      id: "2",
-      title: "HouseParty",
-      img: "assets/Image2.jpg",
-      hostname: "John",
-      distance: "0.2 miles away",
-      count: "50",
-    },
-    {
-      id: "3",
-      title: "All Night Party",
-      img: "assets/Image3.jpg",
-      hostname: "Lisa",
-      distance: "0.1 miles away",
-      count: "10",
-    },
-    {
-      id: "4",
-      title: "ABC Party",
-      img: "assets/Image4.jpg",
-      hostname: "Ravi",
-      distance: "0.6 miles away",
-      count: "20",
-    },
-    {
-      id: "5",
-      title: "HouseParty",
-      img: "assets/Image5.jpg",
-      hostname: "John",
-      distance: "0.2 miles away",
-      count: "50",
-    },
-    {
-      id: "6",
-      title: "All Night Party",
-      img: "assets/Image6.jpg",
-      hostname: "Lisa",
-      distance: "0.1 miles away",
-      count: "10",
-    },
-    {
-      id: "7",
-      title: "ABC Party",
-      img: "assets/Image7.jpg",
-      hostname: "Ravi",
-      distance: "0.6 miles away",
-      count: "20",
-    },
-    {
-      id: "8",
-      title: "HouseParty",
-      img: "assets/Image8.jpg",
-      hostname: "John",
-      distance: "0.2 miles away",
-      count: "50",
-    },
-    {
-      id: "9",
-      title: "All Night Party",
-      img: "assets/Image9.jpg",
-      hostname: "Lisa",
-      distance: "0.1 miles away",
-      count: "10",
-    },
-  ]);
+  const [eventsList, setEventsList] = useState(null);
+
+  const[gotLocation, setGotLocation] = useState(false)
+  const [coordinates, setcoordinates] = useState({
+	user_id: '1',
+  location: {
+  	latitude: parseInt(''),
+    longitude: parseInt('')
+   },
+  radius_meters: 50
+});
+
+useEffect(() => {
+  navigator.geolocation.getCurrentPosition(function (position) {
+    setGotLocation(true);
+    setcoordinates((prevState) => {
+      return {
+        ...prevState,
+        location: {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        }
+      };
+    });
+    console.log("Latitude is :", position.coords.latitude);
+    console.log("Longitude is :", position.coords.longitude);
+  });
+}, []);
+
+useEffect(() => {
+  fetch('http://localhost:5000/eventsList').then(res =>{
+    return res.json();
+  }).then(data =>{
+    setEventsList(data);
+  })
+},[gotLocation]);
+
+
 
   return (
     <EventsContext.Provider value={{eventsList}}>

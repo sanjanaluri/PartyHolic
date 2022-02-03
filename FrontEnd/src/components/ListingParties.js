@@ -1,9 +1,9 @@
 import "../index.css";
 import EventsContext from "../context/EventsContext";
-import {useContext} from 'react'
+import { useContext } from "react";
 
 function ListingParties() {
-  const {eventsList} = useContext(EventsContext)
+  const { eventsList } = useContext(EventsContext);
   return (
     <section>
       {eventsList.map((partyData) => {
@@ -13,7 +13,7 @@ function ListingParties() {
               <a href="#" className="w-full block h-full">
                 <img
                   alt="blog photo"
-                  src={partyData.img}
+                  src={partyData.image_id}
                   className="max-h-40 w-full object-cover"
                 />
                 <div className="bg-white dark:bg-gray-700 w-full p-4">
@@ -21,22 +21,28 @@ function ListingParties() {
                     {partyData.title}
                   </p>
                   <p className="text-gray-900 dark:text-gray-300 font-light text-md">
-                    Distance: {partyData.distance}
+                    Distance: {partyData.distance_miles + " miles away"}
                   </p>
                   <p className="text-gray-900 dark:text-gray-300 font-light text-md">
-                    Host: {partyData.hostname}
+                    Host: {partyData.host_name}
                   </p>
                   <p className="text-gray-900 dark:text-gray-300 font-light text-md">
-                    People Interested: {partyData.count}
+                    Alochol: {partyData.alcohol? "Yes" : "No"}
                   </p>
-                  <div className="flex flex-wrap justify-starts items-center mt-4">
+                  <p className="text-gray-900 dark:text-gray-300 font-light text-md">
+                    Age over18: {partyData.over_18? "Yes": "No"}
+                  </p>
+                  <p className="text-gray-900 dark:text-gray-300 font-light text-md">
+                    People Interested: {partyData.interested_people}
+                  </p>
+                  {/* <div className="flex flex-wrap justify-starts items-center mt-4">
                     <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
                       #Free
                     </div>
                     <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
                       #BringYourOwnBooze
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </a>
             </div>
