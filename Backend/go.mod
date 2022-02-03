@@ -31,6 +31,7 @@ require (
 	controllers v0.0.0
 	database v0.0.0
 	geo v0.0.0
+	github.com/gin-gonic/contrib v0.0.0-20201101042839-6a891bf89f19 // indirect
 	models v0.0.0 // indirect
 
 )

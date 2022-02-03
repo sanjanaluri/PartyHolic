@@ -4,9 +4,10 @@ import (
 	"database/database"
 	"geo/geo"
 
-	"github.com/gin-gonic/gin"
-
 	"controllers/controllers"
+
+	"github.com/gin-gonic/contrib/static"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -15,6 +16,8 @@ func main() {
 
 	database.Database_setup()
 	r := gin.Default()
+
+	r.Use(static.Serve("/", static.LocalFile("../Frontend/build", true)))
 
 	r.GET("/api/addresses", controllers.GetAddresses)
 	r.GET("/api/addresses/:address_id", controllers.GetAddressById)
