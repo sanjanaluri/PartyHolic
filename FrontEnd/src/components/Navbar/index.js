@@ -32,7 +32,11 @@ const Navbar = () => {
             Sign Up
           </NavLink>
           {/* Second Nav */}
+<<<<<<< Updated upstream
           <NavBtnLink to='/sign-in'>Sign In</NavBtnLink>
+=======
+          <NavBtnLink to="/sign-in" activeStyle>Sign In</NavBtnLink>
+>>>>>>> Stashed changes
         </NavMenu>
       </Nav>
     </>

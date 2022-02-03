@@ -1,0 +1,52 @@
+import React, { createContext, useState, useEffect, useContext } from "react";
+
+const EventsContext = createContext();
+
+export const EventsProvider = ({ children }) => {
+  const [eventsList, setEventsList] = useState(null);
+
+  const[gotLocation, setGotLocation] = useState(false)
+  const [coordinates, setcoordinates] = useState({
+	user_id: '1',
+  location: {
+  	latitude: parseInt(''),
+    longitude: parseInt('')
+   },
+  radius_meters: 50
+});
+
+useEffect(() => {
+  navigator.geolocation.getCurrentPosition(function (position) {
+    setGotLocation(true);
+    setcoordinates((prevState) => {
+      return {
+        ...prevState,
+        location: {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        }
+      };
+    });
+    console.log("Latitude is :", position.coords.latitude);
+    console.log("Longitude is :", position.coords.longitude);
+  });
+}, []);
+
+useEffect(() => {
+  fetch('https://postman-echo.com/get').then(res =>{
+    return res.json();
+  }).then(data =>{
+    setEventsList(data);
+  })
+},[gotLocation]);
+
+
+
+  return (
+    <EventsContext.Provider value={{eventsList}}>
+      {children}
+    </EventsContext.Provider>
+  );
+};
+
+export default EventsContext;

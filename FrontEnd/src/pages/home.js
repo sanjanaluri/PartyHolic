@@ -18,9 +18,14 @@ function Home(props)  {
     setZipCodeOpen(true);
   }
 
+<<<<<<< Updated upstream
   function closeZipCodeModal(){
     setZipCodeOpen(false);
     alert ("Entered zip code is xx");
+=======
+  function closeZipCodeModal(props) {
+    setZipCodeOpen(false);
+>>>>>>> Stashed changes
   }
 
   function openGeoLocModal(){
