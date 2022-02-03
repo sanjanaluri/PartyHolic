@@ -4,16 +4,17 @@ import { useContext } from "react";
 
 function ListingParties() {
   const { eventsList } = useContext(EventsContext);
+  console.log(eventsList)
   return (
     <section>
-      {eventsList.map((partyData) => {
+      {eventsList.parties.map((partyData) => {
         return (
           <div className="categoryListing " key={partyData.id}>
             <div className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
               <a href="#" className="w-full block h-full">
                 <img
                   alt="blog photo"
-                  src={partyData.image_id}
+                  src={"http://localhost:8080/images/" +partyData.image_id}
                   className="max-h-40 w-full object-cover"
                 />
                 <div className="bg-white dark:bg-gray-700 w-full p-4">

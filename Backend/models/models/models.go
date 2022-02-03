@@ -36,7 +36,7 @@ type Parties struct {
 	Tags        string `json:"Tags"`
 	Description string `json:"Description"`
 
-	Image_id       string `json:"Image_id"`
+	Image_id       string `json:"image_id"`
 	Attendee_count int    `json:"interested_people"`
 
 	Longitude float64 `json:"Longitude"`
@@ -52,7 +52,7 @@ type Party struct {
 
 	Distance float64 `json:"distance_miles"`
 
-	Image_id string `json:"Image_id"`
+	Image_id string `json:"image_id"`
 
 	// Tags []Tag `json:"tags"`
 }
