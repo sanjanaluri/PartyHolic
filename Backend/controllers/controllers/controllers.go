@@ -16,14 +16,10 @@ func GetParties(c *gin.Context) {
 
 	c.BindJSON(&request)
 
-	// if err := database.DB.Where("longitude = ?", request.Location.Longitude).Find(&parties).Error; err != nil {
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
-	// 	return
-	// }
+	distance_calculation := "(((acos(sin((?*3.414/180)) * sin((p.latitude*3.414/180))+cos((?*3.414/180))*cos((p.latitude*3.414/180))*cos(((?-p.longitude)*3.414/180))))*180/3.414)*60*1.1515*1609.344)/1609.34 as Distance"
+	distance_string := "select p.Party_name, concat_ws(' ', u.first_name, u.last_name) as Host_name, p.attendee_count, " + distance_calculation + " from parties p join users u on p.host_id = u.user_id order by 4 limit 20"
 
-	//distance_string := "(((acos(sin((?*pi()/180)) * sin((latitude*pi()/180))+cos((?*pi()/180))*cos((latitude*pi()/180))*cos(((?-longitude)*pi()/180))))*180/pi())*60*1.1515*1609.344)"
-	database.DB.Raw("SELECT party_name, host_name, attendee_count, latitude AS distance FROM parties WHERE distance < ? ORDER BY distance ASC LIMIT 20;", request.Radius_Meters).Scan(&parties)
-
+	database.DB.Raw(distance_string, request.Location.Latitude, request.Location.Latitude, request.Location.Longitude).Scan(&parties)
 	c.JSON(http.StatusOK, gin.H{"parties": parties})
 
 }

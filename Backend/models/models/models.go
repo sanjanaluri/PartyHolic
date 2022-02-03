@@ -50,7 +50,7 @@ type Party struct {
 
 	Attendee_count int `json:"interested_people"`
 
-	Distance float64 `json:"distance_meters"`
+	Distance float64 `json:"distance_miles"`
 
 	// Tags []Tag `json:"tags"`
 }

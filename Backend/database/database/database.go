@@ -3,13 +3,14 @@ package database
 import (
 	"fmt"
 	"models/models"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
-func checkErr(err error, sucess_message string) {
+func checkErr(err error, error_message string) {
 	if err != nil {
-		fmt.Println(err, " ", sucess_message)
+		fmt.Println(err, " ", error_message)
 	}
 }
 
@@ -22,9 +23,10 @@ func GetDB() *gorm.DB {
 
 func Database_setup() {
 
-	dsn := "root:password@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
-    db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	dsn := "root:@tcp(127.0.0.1:3306)/partyholic?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	checkErr(err, "Database Created")
+	// db.DropTableIfExists()
 
 	db.Debug().AutoMigrate(&models.Addresses{}, &models.Users{}, &models.Parties{}, &models.Location{})
 	DB = db
