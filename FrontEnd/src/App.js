@@ -8,36 +8,11 @@ import Contact from "./pages/contact";
 import SignUp from "./pages/signup";
 import PartyList from "./pages/PartyList";
 import { EventsProvider } from "./context/EventsContext";
-import axios from "axios";
 import EventsContext from "./context/EventsContext";
 
 
 function App(props) {
   // const {getCoordinates} = useContext(EventsContext)
-  const [coordinates, setcoordinates] = useState({
-	user_id: '1',
-  location: {
-  	latitude: parseInt(''),
-    longitude: parseInt('')
-   },
-  radius_meters: 50
-});
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      setcoordinates((prevState) => {
-        return {
-          ...prevState,
-          location: {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-          }
-        };
-      });
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
-    });
-  }, []);
 
   const Submithandler = (e) => {
     // e.preventDefault();
