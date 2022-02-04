@@ -40,8 +40,6 @@ function App(props) {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
         </Routes>
-
-        <button onClick={Submithandler}>Submit</button>
       </Router>
     </EventsProvider>
   );
