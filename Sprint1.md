@@ -4,6 +4,9 @@
 
 ## Sprint 1
 
+### Link to the video presentation for sprint 1 - 
+https://uflorida-my.sharepoint.com/:v:/g/personal/himakireetikonda_ufl_edu/EQt7EE4c5KtKkxYoQejIzXYBjg4Cof_Wl5CN1lE0-Z2FpQ?e=UJppv0
+
 ### Deliverable -
 User should be able to see list of parties going on at the moment near their location 
 
