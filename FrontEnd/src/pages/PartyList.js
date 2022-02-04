@@ -5,7 +5,7 @@ import  ListingParties  from '../components/ListingParties';
 function PartyList() {
     
     return (
-      <div className='category'>
+      <div className='category container align-center'>
               <div>
                   <ListingParties/> 
               </div>

@@ -31,7 +31,7 @@ function Home(props) {
   }
 
   return (
-    <div className="container">
+    <div>
       <div>
         <main>
             <img
@@ -42,10 +42,6 @@ function Home(props) {
           <button onClick={openZipCodeModal}>Press for zipcode</button>
           {zipCodeOpen && <ZipCode onEnter={closeZipCodeModal} />}
           {geoLocOpen && <Geolocation onEnter={closeGeoLocModal} />}
-          <div>
-            <p>. </p>
-            <p>. </p>
-          </div>
         </main>
       </div>
     </div>

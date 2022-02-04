@@ -9,8 +9,8 @@ function ListingParties() {
     <section>
       {eventsList.parties.map((partyData) => {
         return (
-          <div className="categoryListing " key={partyData.id}>
-            <div className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
+          <div className="categoryListing"  key={partyData.id}>
+            <div className="overflow-hidden shadow-lg rounded-lg h-90 w-40 md:w-80 cursor-pointer m-auto">
               <a href="#" className="w-full block h-full">
                 <img
                   alt="blog photo"
