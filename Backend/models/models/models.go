@@ -44,6 +44,7 @@ type Parties struct {
 }
 
 type Party struct {
+	Party_id   int    `json:"party_id"`
 	Party_name string `json:"title"`
 
 	Host_name string `json:"host_name"`
@@ -71,4 +72,7 @@ type PartiesRequest struct {
 type Tag struct {
 	Tag_name  string `json:"name"`
 	Tag_value string `json:"value"`
+}
+
+type Individual_Party struct {
 }
