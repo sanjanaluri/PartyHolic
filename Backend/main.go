@@ -25,8 +25,8 @@ func main() {
 	r.POST("/api/addAddress", controllers.AddAddress)
 
 	r.POST("/api/newUser", controllers.AddUser)
-	r.POST("/api/newParty", controllers.AddParty)
 
+	r.POST("/api/newParty", controllers.AddParty)
 	r.POST("/api/parties", controllers.GetParties)
 
 	// PORT environment variable was defined.
