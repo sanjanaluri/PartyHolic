@@ -27,23 +27,7 @@ func Database_setup() {
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	checkErr(err, "Database Created")
 
-	// if DB.Migrator().HasTable(&models.Addresses{}) {
-	// 	DB.Migrator().DropTable(&models.Addresses{})
-	// }
-
-	// if DB.Migrator().HasTable(&models.Users{}) {
-	// 	DB.Migrator().DropTable(&models.Users{})
-	// }
-
-	// if DB.Migrator().HasTable(&models.Parties{}) {
-	// 	DB.Migrator().DropTable(&models.Parties{})
-	// }
-
-	// if DB.Migrator().HasTable(&models.Location{}) {
-	// 	DB.Migrator().DropTable(&models.Location{})
-	// }
-
-	db.Debug().AutoMigrate(&models.Addresses{}, &models.Users{}, &models.Parties{}, &models.Location{})
+	db.Debug().AutoMigrate(&models.Addresses{}, &models.Users{}, &models.Parties{}, &models.CancelledParties{})
 	DB = db
 
 }

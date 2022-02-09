@@ -198,7 +198,7 @@ type Body struct {
 	} `json:"items"`
 }
 
-func GeoAddress(address string) {
+func GeoAddress(address string) []float64 {
 	endpoint, _ := url.Parse("https://geocode.search.hereapi.com/v1/geocode")
 	queryParams := endpoint.Query()
 
@@ -208,6 +208,7 @@ func GeoAddress(address string) {
 
 	endpoint.RawQuery = queryParams.Encode()
 	response, err := http.Get(endpoint.String())
+	op := make([]float64, 2)
 
 	if err != nil {
 		fmt.Printf("Error")
@@ -222,8 +223,12 @@ func GeoAddress(address string) {
 		if err != nil {
 			fmt.Println(err)
 		} else {
-			fmt.Println(responseBody.Items[0].Position)
+
+			op[0] = responseBody.Items[0].Position.Lat
+			op[1] = responseBody.Items[0].Position.Lng
+
 		}
 
 	}
+	return op
 }
