@@ -1,7 +1,6 @@
 import React from "react";
 
 function LandingStyle() {
-    
   return (
     <>
       <div className="container">
@@ -15,7 +14,7 @@ function LandingStyle() {
           <span className="text2">into amazing experiences</span>
         </div>
         <button className="cont-btn1  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-          Atten an Event
+          Attend an Event
         </button>
         <button className="cont-btn2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
           Host an Event
