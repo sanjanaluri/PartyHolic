@@ -17,6 +17,5 @@ insert into addresses values(4,"4000 SW 37th apt 1012","Gainesville","Florida","
 insert into parties values(1, "Classic Party", 1,1,"2006-01-02T15:04:05.999999-07:00","2006-01-02T15:04:05.999999-07:00","","","Image4.jpg",100,29.63597,-82.3291);
 insert into parties values(2, "Daaru Party", 2,2,"2006-01-02T15:04:05.999999-07:00","2006-01-02T15:04:05.999999-07:00","","","Image5.jpg",100,29.63590,-82.3290);
 insert into parties values(3, "Chillar party", 3,3,"2006-01-02T15:04:05.999999-07:00","2006-01-02T15:04:05.999999-07:00","","","Image6.jpg",100,29.63589,-82.3299);
-
 insert into parties values(4, "Gay party", 4,4,"2006-01-02T15:04:05.999999-07:00","2006-01-02T15:04:05.999999-07:00","","","Image7.jpg",100,29.63593,-82.3290);
 EOF
