@@ -1,11 +1,20 @@
+import React from "react";
 import "../index.css";
 import EventsContext from "../context/EventsContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function ListingParties() {
   const { eventsList } = useContext(EventsContext);
-  console.log(eventsList)
-  return (
+  let history = useNavigate();
+  function navigateTo() 
+   {
+     history('/partyDetail',eventsList.parties); 
+  }
+
+ 
+  return (  
     <section>
       {eventsList.parties.map((partyData) => {
         return (
@@ -33,9 +42,9 @@ function ListingParties() {
                   <p className="text-gray-900 dark:text-gray-300 font-light text-md">
                     Age over18: {partyData.over_18? "Yes": "No"}
                   </p>
-                  <p className="text-gray-900 dark:text-gray-300 font-light text-md">
-                    People Interested: {partyData.interested_people}
-                  </p>
+                  <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
+                      <button onClick={navigateTo}> view</button>
+                    </div>
                   {/* <div className="flex flex-wrap justify-starts items-center mt-4">
                     <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
                       #Free
