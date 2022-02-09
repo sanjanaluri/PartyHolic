@@ -2,6 +2,9 @@ package controllers
 
 import (
 	"database/database"
+	"database/sql"
+	"fmt"
+	"geo/geo"
 	"models/models"
 	"net/http"
 
@@ -9,8 +12,8 @@ import (
 )
 
 func GetAddresses(c *gin.Context) {
-	var address models.Addresses
-	database.DB.Find(&address)
+	var address []models.Addresses
+	database.DB.Raw("Select * from addresses").Scan(&address)
 	c.JSON(http.StatusOK, gin.H{"message": &address})
 }
 
@@ -32,13 +35,15 @@ func AddAddress(c *gin.Context) {
 		return
 	}
 
-	address := models.Addresses{Lane_one: input.Lane_one,
-		Lane_two:  input.Lane_two,
+	address_string := string(input.Lane_apt + "," + input.City + ", " + input.State + ", " + input.Country)
+	location := (geo.GeoAddress(address_string))
+
+	address := models.Addresses{Lane_apt: input.Lane_apt,
 		City:      input.City,
 		State:     input.State,
 		Country:   input.Country,
-		Latitude:  input.Latitude,
-		Longitude: input.Longitude,
+		Latitude:  location[0],
+		Longitude: location[1],
 	}
 	database.DB.Create(&address)
 
@@ -115,10 +120,33 @@ func GetParties(c *gin.Context) {
 
 }
 
-// func deletePerson(c *gin.Context) {
-// 	id := c.Param("id")
-// 	c.JSON(http.StatusOK, gin.H{"message": "deletePerson " + id + " Called"})
-// }
+func GetParty(c *gin.Context) {
+	var party_details models.FullPartyDetails
+
+	party_columns := "parties.Party_id, parties.party_name, parties.Start_time, parties.end_time, parties.tags, parties.description, parties.image_id, parties.attendee_count as interested_people,"
+	user_columns := "users.first_name, users.last_name,"
+	address_columns := "addresses.Lane_apt, addresses.City, addresses.State, addresses.Country, addresses.Latitude, addresses.Longitude"
+
+	user_join := "JOIN users on users.user_id = parties.host_id"
+	address_join := "Join addresses on addresses.address_id = parties.address_id"
+
+	database.DB.Table("parties").Select(party_columns+user_columns+address_columns).Where("parties.party_id = ?", c.Param("party_id")).Joins(user_join).Joins(address_join).Find(&party_details)
+
+	c.JSON(http.StatusOK, gin.H{"data": party_details})
+
+}
+
+func CancelParty(c *gin.Context) {
+	id := c.Param("party_id")
+
+	sql_connection, err2 := sql.Open("mysql", "root:@tcp(0.0.0.0:3306)/partyholic")
+	res, err := sql_connection.Query("insert into cancelled_parties (select * from parties where party_id=?)", id)
+	defer sql_connection.Close()
+	fmt.Println(res, err2, err)
+
+	database.DB.Delete(&models.Parties{}, id)
+
+}
 
 // func options(c *gin.Context) {
 // 	c.JSON(http.StatusOK, gin.H{"message": "options Called"})
