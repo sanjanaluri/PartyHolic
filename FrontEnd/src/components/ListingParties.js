@@ -3,6 +3,7 @@ import "../index.css";
 import EventsContext from "../context/EventsContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function ListingParties() {
@@ -43,7 +44,8 @@ function ListingParties() {
                     Age over18: {partyData.over_18? "Yes": "No"}
                   </p>
                   <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
-                      <button onClick={navigateTo}> view</button>
+                      {/* <button onClick={props.onPartySelect(partyData.id)}> view</button> */}
+                      <Link to={`/partyDetail/${partyData.id}`}>View</Link>
                     </div>
                   {/* <div className="flex flex-wrap justify-starts items-center mt-4">
                     <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
