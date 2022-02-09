@@ -37,9 +37,6 @@ require (
 )
 
 replace geo v0.0.0 => ./geo/
-
 replace database v0.0.0 => ./database/
-
 replace models v0.0.0 => ./models/
-
 replace controllers v0.0.0 => ./controllers/
