@@ -4,6 +4,8 @@ import { useState } from "react";
 import ZipCode from "../components/Zipcode";
 import Geolocation from "../components/Geolocation";
 import Navbar from "../components/Navbar";
+import "../index.css";
+import LandingStyle from "../components/LandingStyle";
 
 function Home(props) {
   const [zipCodeOpen, setZipCodeOpen] = useState(false);
@@ -34,11 +36,7 @@ function Home(props) {
     <div>
       <div>
         <main>
-            <img
-              src="assets/127045.jpg"
-              alt="rent"
-              className="object-cover w-screen h-screen"
-            />
+          <LandingStyle/>
           <button onClick={openZipCodeModal}>Press for zipcode</button>
           {zipCodeOpen && <ZipCode onEnter={closeZipCodeModal} />}
           {geoLocOpen && <Geolocation onEnter={closeGeoLocModal} />}

@@ -13,25 +13,11 @@ import EventsContext from "./context/EventsContext";
 
 
 function App(props) {
-  // const {getCoordinates} = useContext(EventsContext)
-
-  const Submithandler = (e) => {
-    // e.preventDefault();
-    // console.log(coordinates);
-    // axios
-    //   .post("https://my-json-server.typicode.com/", coordinates)
-    //   .then((resonse) => {
-    //     console.log(resonse);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-  };
 
   return (
     <EventsProvider>
       <Router>
-        <Navbar />
+      <Navbar />
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/about" element={<About />} />
