@@ -10,6 +10,7 @@ import SignIn from "./pages/signin";
 import PartyList from "./pages/PartyList";
 import { EventsProvider } from "./context/EventsContext";
 import EventsContext from "./context/EventsContext";
+import PartyDetail from "./pages/PartyDetail";
 
 
 function App(props) {
@@ -39,6 +40,7 @@ function App(props) {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/partyDetail/:partyId" element={<PartyDetail/>}/>
         </Routes>
       </Router>
     </EventsProvider>

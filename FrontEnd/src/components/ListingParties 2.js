@@ -4,16 +4,15 @@ import EventsContext from "../context/EventsContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import PartyDetail from "../pages/PartyDetail";
 
 
 function ListingParties() {
   const { eventsList } = useContext(EventsContext);
-  // let history = useNavigate();
-  // function navigateTo() 
-  //  {
-  //    history('/partyDetail',eventsList.parties); 
-  // }
+  let history = useNavigate();
+  function navigateTo() 
+   {
+     history('/partyDetail',eventsList.parties); 
+  }
 
  
   return (  
@@ -33,10 +32,10 @@ function ListingParties() {
                     {partyData.title}
                   </p>
                   <p className="text-gray-900 dark:text-gray-300 font-light text-md">
-                    Party id: {partyData.party_id }
+                    Distance: {partyData.distance_miles + " miles away"}
                   </p>
                   <p className="text-gray-900 dark:text-gray-300 font-light text-md">
-                    Distance: {partyData.distance_miles + " miles away"}
+                    Id: {partyData.party_id}
                   </p>
                   <p className="text-gray-900 dark:text-gray-300 font-light text-md">
                     Host: {partyData.host_name}
@@ -49,7 +48,7 @@ function ListingParties() {
                   </p>
                   <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
                       {/* <button onClick={props.onPartySelect(partyData.id)}> view</button> */}
-                      <Link to={'/partyDetail/{partyData.party_id}'}>View</Link>
+                      <Link to={`/partyDetail/${partyData.party_id}`}>View</Link>
                     </div>
                   {/* <div className="flex flex-wrap justify-starts items-center mt-4">
                     <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
