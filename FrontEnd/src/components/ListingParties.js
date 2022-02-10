@@ -49,7 +49,7 @@ function ListingParties() {
                   </p>
                   <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
                       {/* <button onClick={props.onPartySelect(partyData.id)}> view</button> */}
-                      <Link to={'/partyDetail/{partyData.party_id}'}>View</Link>
+                      <Link to={`/partyDetail/${partyData.party_id}`}>View</Link>
                     </div>
                   {/* <div className="flex flex-wrap justify-starts items-center mt-4">
                     <div className="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">

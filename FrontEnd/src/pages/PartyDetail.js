@@ -6,11 +6,8 @@ import {useParams} from "react-router-dom"
 
 function PartyDetail(props) {
     const {partyId} = useParams()
-    console.log(typeof(partyId))
     const { eventsList } = useContext(EventsContext);
-    console.log()
     const thisParty =eventsList.parties.find(data => data.party_id == partyId)
-    console.log(thisParty)
     
     return (
         <div
