@@ -23,11 +23,11 @@ func GetDB() *gorm.DB {
 
 func Database_setup() {
 
-	dsn := "root:password@tcp(127.0.0.1:3306)/partyholic?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:@tcp(127.0.0.1:3306)/partyholic?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	checkErr(err, "Database Created")
 
-	db.Debug().AutoMigrate(&models.Addresses{}, &models.Users{}, &models.Parties{}, &models.CancelledParties{})
+	db.AutoMigrate(&models.Addresses{}, &models.Users{}, &models.Parties{}, &models.CancelledParties{}, &models.AttendeeList{})
 	DB = db
 
 }

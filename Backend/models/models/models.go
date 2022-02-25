@@ -103,8 +103,7 @@ type FullPartyDetails struct {
 	First_name string `json:"First_name"`
 	Last_name  string `json:"Last_name"`
 
-	Lane_one  string  `json:"Lane_one"`
-	Lane_two  string  `json:"Lane_two"`
+	Lane_apt  string  `json:"Lane_apt"`
 	City      string  `json:"City"`
 	State     string  `json:"State"`
 	Country   string  `json:"Country"`
@@ -119,4 +118,9 @@ type FullPartyDetails struct {
 
 	Image_id       string `json:"image_id"`
 	Attendee_count int    `json:"interested_people"`
+}
+
+type AttendeeList struct {
+	User_id  int `json:"user_id"`
+	Party_id int `json:"party_id"`
 }
