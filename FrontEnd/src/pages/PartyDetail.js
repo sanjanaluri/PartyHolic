@@ -11,7 +11,7 @@ import {
 } from "react-google-maps";
 import mapStyles from "../components/mapStyles";
 
-function Map() {
+function Map(thisParty) {
   const [selectedPark, setSelectedPark] = useState(false);
 
   useEffect(() => {
@@ -43,6 +43,12 @@ function Map() {
           console.log(selectedPark);
         }}
       />
+      <Marker
+        position={{
+          lat: thisParty.latitude,
+          lng: thisParty.latitude,
+        }}
+      />
 
       {selectedPark && (
         <InfoWindow
@@ -64,11 +70,13 @@ function Map() {
   );
 }
 
-const MapWrapped = withScriptjs(withGoogleMap(Map));
 function PartyDetail(props) {
   const { partyId } = useParams();
   const { eventsList } = useContext(EventsContext);
   const thisParty = eventsList.parties.find((data) => data.party_id == partyId);
+  
+  const MapWrapped = withScriptjs(withGoogleMap(() => Map(thisParty)));
+
   return (
     <div
       style={{
