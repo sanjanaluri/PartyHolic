@@ -103,8 +103,7 @@ type FullPartyDetails struct {
 	First_name string `json:"First_name"`
 	Last_name  string `json:"Last_name"`
 
-	Lane_one  string  `json:"Lane_one"`
-	Lane_two  string  `json:"Lane_two"`
+	Lane_apt  string  `json:"Lane_apt"`
 	City      string  `json:"City"`
 	State     string  `json:"State"`
 	Country   string  `json:"Country"`
