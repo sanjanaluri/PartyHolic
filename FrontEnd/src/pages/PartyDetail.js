@@ -1,4 +1,4 @@
-import EventsContext from "../context/EventsContext";
+import PartyContext from "../context/PartyDetailContext";
 import { useContext } from "react";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -27,7 +27,9 @@ function Map(thisParty) {
     };
   }, []);
 
+  console.log(thisParty);
   return (
+    
     <GoogleMap
       defaultZoom={14}
       defaultCenter={{ lat: 29.6175, lng: -82.37871 }}
@@ -72,12 +74,18 @@ function Map(thisParty) {
 
 function PartyDetail(props) {
   const { partyId } = useParams();
+
   const { eventsList } = useContext(EventsContext);
+  const {partyDetail} = useContext(EventsContext);
   const thisParty = eventsList.parties.find((data) => data.party_id == partyId);
+
+
+
   
   const MapWrapped = withScriptjs(withGoogleMap(() => Map(thisParty)));
 
   return (
+    <PartyContext  id = {partyId}>
     <div
       style={{
         width: "100vw",
@@ -86,6 +94,7 @@ function PartyDetail(props) {
         bottom: "0px",
       }}
     >
+      console.log(thisParty);
       <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAPirDDFz7WN4fP83viAvaBhVTQr6t0i7A`}
         loadingElement={<div style={{ height: `100%` }} />}
@@ -93,6 +102,9 @@ function PartyDetail(props) {
         mapElement={<div style={{ height: `100%` }} />}
       />
     </div>
+
+    </PartyContext>
+    
   );
 }
 
