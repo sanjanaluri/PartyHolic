@@ -30,6 +30,8 @@ useEffect(() => {
     });
 
     setGotLocation(true);
+  });
+}, []);
 
 useEffect(() => {
   fetch('http://localhost:8080/api/parties',  {
