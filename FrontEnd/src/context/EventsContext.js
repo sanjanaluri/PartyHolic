@@ -4,7 +4,17 @@ const EventsContext = createContext();
 
 export const EventsProvider = ({ children }) => {
   const [eventsList, setEventsList] = useState(null);
-
+  // const [selectedParty, setSelectedParty] = useState(
+  //   {
+  //     set: partyID => {
+  //       console.log("hello there " + partyID)
+  //       setGotPartyId(true)
+  //       console.log(gotPartyId)
+  //     }
+      
+  //   }
+  // )
+  const [gotPartyId, setGotPartyId] = useState(false);
   const [gotLocation, setGotLocation] = useState(false);
   const [coordinates, setcoordinates] = useState({
     user_id: "1",
@@ -41,10 +51,29 @@ export const EventsProvider = ({ children }) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         setEventsList(data);
       });
   }, [gotLocation]);
+
+  
+    // useEffect(() => {
+    //   if (gotPartyId) {
+    //   fetch(`http://localhost:8080/api/getParty/${partyID}`, {
+    //     method: "GET",
+    //     headers: { "Content-Type": "appplication/json" },
+    //   })
+    //     .then((res) => {
+    //       return res.json();
+    //     })
+    //     .then((data) => {
+    //       console.log("hi")
+    //       console.log(data);
+    //       setPartyData(data);
+    //     });
+    //   }
+    // },[]);
+  
+
 
   return (
     <EventsContext.Provider value={{ eventsList }}>
