@@ -104,17 +104,34 @@ function PartyDetail(props) {
   return ( 
     <>
     { partyIdFetched && 
-    <div
+    <div 
       style={{
+        
         width: "100vw",
         height: "50vh",
         position: "absolute",
         bottom: "0px",
-      }}
+      }
+    } 
     >
-      <h1>{partyData.data.Party_id}</h1>
-      <h1>HIIII</h1>
-     {/* <MapWrapped
+      <div align="center">
+      <img
+                  alt="blog photo"
+                  src={"http://localhost:8080/images/" + partyData.data.image_id}
+                  className="max-h-40 w-40 object-cover"
+                />
+      <h1>Party Id- {partyData.data.Party_id}</h1>
+      <h1>Party name-{partyData.data.Party_name}</h1>
+      <h1>Host Name- {partyData.data.First_name} {partyData.data.Last_name}</h1>
+      <h1>Start Time- {partyData.data.Start_time}</h1>
+      <h1>End Time- {partyData.data.End_time}</h1>
+      <h1>Lane- {partyData.data.Lane_apt}</h1>
+      <h1>City- {partyData.data.City}</h1>
+      <h1>State- {partyData.data.State}</h1>
+      <h1>Country- {partyData.data.Country}</h1>
+      <h1>Interested people- {partyData.data.interested_people}</h1>
+      </div>
+      {/* <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAPirDDFz7WN4fP83viAvaBhVTQr6t0i7A`}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100%` }} />}
