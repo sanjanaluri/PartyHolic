@@ -1,12 +1,11 @@
 package main
 
 import (
+	"controllers/controllers"
 	"database/database"
 	"geo/geo"
 
-	"controllers/controllers"
-
-	"github.com/gin-gonic/contrib/static"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,8 +15,9 @@ func main() {
 
 	database.Database_setup()
 	r := gin.Default()
+	r.Use(cors.Default())
 	r.Static("/images", "./images")
-	r.Use(static.Serve("/", static.LocalFile("../Frontend/build", true)))
+	//r.Use(static.Serve("/", static.LocalFile("../Frontend/build", true)))
 
 	r.GET("/api/addresses", controllers.GetAddresses)
 	r.GET("/api/addresses/:address_id", controllers.GetAddressById)
