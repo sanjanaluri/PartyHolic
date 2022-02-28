@@ -13,7 +13,6 @@ import mapStyles from "../components/mapStyles";
 
 function Map(partyData) {
   const [selectedPark, setSelectedPark] = useState(false);
-
   useEffect(() => {
     const listener = (e) => {
       if (e.key === "Escape") {
@@ -77,6 +76,7 @@ function Map(partyData) {
 function PartyDetail(props) {
   const { partyId } = useParams();
   console.log(partyId)
+
   const [partyData, setPartyData] = useState(null);
   const [partyIdFetched,setPartyIdFetched] = useState(false);
   let MapWrapped;
@@ -131,15 +131,17 @@ function PartyDetail(props) {
       <h1>Country- {partyData.data.Country}</h1>
       <h1>Interested people- {partyData.data.interested_people}</h1>
       </div>
-      {/* <MapWrapped
+          {/* <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAPirDDFz7WN4fP83viAvaBhVTQr6t0i7A`}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100%` }} />}
         mapElement={<div style={{ height: `100%` }} />}
       /> */}
+
     </div>
   }
 </>
+
   );
 
   

@@ -4,7 +4,9 @@ const EventsContext = createContext();
 
 export const EventsProvider = ({ children }) => {
   const [eventsList, setEventsList] = useState(null);
+
   const[gotLocation, setGotLocation] = useState(false)
+
   const [coordinates, setcoordinates] = useState({
 	user_id: '1',
   location: {
@@ -26,12 +28,8 @@ useEffect(() => {
         }
       };
     });
+
     setGotLocation(true);
-    
-  });
-}, []);
-
-
 
 useEffect(() => {
   fetch('http://localhost:8080/api/parties',  {
@@ -47,22 +45,7 @@ useEffect(() => {
   })
 },[gotLocation]);
 
-
-// useEffect(() => {
-
-//   fetch(`http://localhost:8080/api/getParty/${partyDetail.party_id}`,  {
-//     method:'GET',
-//     headers:{ 'Content-Type':'appplication/json'},
-//     body:JSON.stringify(partyDetail)
-// }
-// ).then(res =>{
-//     return res.json();
-//   }).then(data =>{
-//     console.log(data)
-//     setPartyDetail(data);
-//   })
-// },[]);
-
+  
 
   return (
     <EventsContext.Provider value={{eventsList}}>
