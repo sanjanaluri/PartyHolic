@@ -4,8 +4,6 @@ const EventsContext = createContext();
 
 export const EventsProvider = ({ children }) => {
   const [eventsList, setEventsList] = useState(null);
-  const [partyDetail, setPartyDetail] = useState(null);
-  const[selectedParty, setSelectedParty] = useState("");
   const[gotLocation, setGotLocation] = useState(false)
   const [coordinates, setcoordinates] = useState({
 	user_id: '1',

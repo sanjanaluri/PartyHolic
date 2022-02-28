@@ -8,7 +8,7 @@ import PartyDetail from "../pages/PartyDetail";
 
 function ListingParties() {
   const { eventsList } = useContext(EventsContext);
-  let history = useNavigate();
+
 
   return (
     <section>
@@ -44,7 +44,6 @@ function ListingParties() {
                   <div className="pt-2">
                     <div className="text-m w-1/2 mx-auto font-bold py-2 px-4 text-white bg-gray-500 hover:bg-gray-900 rounded-2xl text-center">
                       <Link to={`/partyDetail/${partyData.party_id}`}   params={{partyId: partyData.party_id}}>
-
                         View
                       </Link>
                     </div>
