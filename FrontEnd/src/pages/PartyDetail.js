@@ -85,7 +85,7 @@ function PartyDetail(props) {
   const MapWrapped = withScriptjs(withGoogleMap(() => Map(thisParty)));
 
   return (
-    <PartyContext  id = {partyId}>
+    
     <div
       style={{
         width: "100vw",
@@ -103,7 +103,7 @@ function PartyDetail(props) {
       />
     </div>
 
-    </PartyContext>
+    
     
   );
 }
