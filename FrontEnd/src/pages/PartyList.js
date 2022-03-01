@@ -10,13 +10,13 @@ function PartyList() {
   const handleClose = () => setShow(false);
   return (
     <>
-      <div className="category container">
+      <div className="category container mx-auto px-auto">
         <div className="pt-20 mb-3.5">
           <button
             onClick={handleShow}
             class="ml-8 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
           >
-            Button
+            Add Event
           </button>
         </div>
         <div>
@@ -25,10 +25,15 @@ function PartyList() {
       </div>
 
       {show && (
-        <div class="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
-          <div class="bg-white px-16 py-14 rounded-md text-center">
+        <div class="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute  top-30 right-0 bottom-0 left-0">
+          <div class="bg-white px-16 py-9 rounded-md text-center">
             <Addform />
-            <button t onClick={handleClose}>
+            <button
+              t
+              onClick={handleClose}
+              type="button"
+              class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out mt-4"
+            >
               Close
             </button>
           </div>
