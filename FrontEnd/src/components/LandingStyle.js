@@ -13,7 +13,7 @@ function LandingStyle() {
     }
   return (
     <>
-      <div className="container mt-15">
+      <div className="mt-15">
         <img
           src="assets/127045.jpg"
           alt="rent"

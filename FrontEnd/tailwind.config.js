@@ -6,6 +6,7 @@ module.exports = {
     "./src/components/Navbar/index.js",
     "./src/components/LandingStyle.js",
     "./src/components/AddFrom.js",
+    "./src/pages/PartyDetail.js",
   ],
   theme: {
     extend: {
