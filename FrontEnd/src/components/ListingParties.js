@@ -1,14 +1,14 @@
 import React from "react";
 import "../index.css";
 import EventsContext from "../context/EventsContext";
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import PartyDetail from "../pages/PartyDetail";
+
 
 function ListingParties() {
   const { eventsList } = useContext(EventsContext);
-  let history = useNavigate();
+
 
   return (
     <section>
@@ -43,7 +43,7 @@ function ListingParties() {
                   </p>
                   <div className="pt-2">
                     <div className="text-m w-1/2 mx-auto font-bold py-2 px-4 text-white bg-gray-500 hover:bg-gray-900 rounded-2xl text-center">
-                      <Link to={`/partyDetail/${partyData.party_id}`}>
+                      <Link to={`/partyDetail/${partyData.party_id}`}   params={{partyId: partyData.party_id}}>
                         View
                       </Link>
                     </div>

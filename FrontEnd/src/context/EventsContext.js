@@ -6,6 +6,7 @@ export const EventsProvider = ({ children }) => {
   const [eventsList, setEventsList] = useState(null);
 
   const[gotLocation, setGotLocation] = useState(false)
+
   const [coordinates, setcoordinates] = useState({
 	user_id: '1',
   location: {
@@ -17,7 +18,7 @@ export const EventsProvider = ({ children }) => {
 
 useEffect(() => {
   navigator.geolocation.getCurrentPosition(function (position) {
-    setGotLocation(true);
+    
     setcoordinates((prevState) => {
       return {
         ...prevState,
@@ -27,12 +28,10 @@ useEffect(() => {
         }
       };
     });
-    console.log("Latitude is :", position.coords.latitude);
-    console.log("Longitude is :", position.coords.longitude);
+
+    setGotLocation(true);
   });
 }, []);
-
-
 
 useEffect(() => {
   fetch('http://localhost:8080/api/parties',  {
@@ -48,7 +47,7 @@ useEffect(() => {
   })
 },[gotLocation]);
 
-
+  
 
   return (
     <EventsContext.Provider value={{eventsList}}>
