@@ -36,7 +36,7 @@ function Home(props) {
     <div>
       <div>
         <main>
-          <LandingStyle/>
+          <LandingStyle />
           <button onClick={openZipCodeModal}>Press for zipcode</button>
           {zipCodeOpen && <ZipCode onEnter={closeZipCodeModal} />}
           {geoLocOpen && <Geolocation onEnter={closeGeoLocModal} />}
