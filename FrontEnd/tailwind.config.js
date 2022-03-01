@@ -5,6 +5,7 @@ module.exports = {
     "./src/components/ListingParties.js",
     "./src/components/Navbar/index.js",
     "./src/components/LandingStyle.js",
+    "./src/components/AddFrom.js",
   ],
   theme: {
     extend: {
@@ -13,5 +14,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
