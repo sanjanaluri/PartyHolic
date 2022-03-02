@@ -25,8 +25,8 @@ function PartyList() {
       </div>
 
       {show && (
-        <div class="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute  top-30 right-0 bottom-0 left-0">
-          <div class="bg-white px-16 py-9 rounded-md text-center">
+        <div class="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
+          <div class="bg-white rounded-md text-center mt-24 py-5">
             <Addform />
             <button
               t
