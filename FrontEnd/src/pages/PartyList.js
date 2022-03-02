@@ -2,12 +2,28 @@ import React from "react";
 import { useEffect, useState } from "react";
 import ListingParties from "../components/ListingParties";
 import { Modal, Button } from "react-bootstrap";
-import Addform from "../components/AddFrom";
+import AddForm from "../components/AddForm";
+import props from 'prop-types';
 
 function PartyList() {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+
+  function addPartyHandler(addPartyData){
+    fetch('http://localhost:8080/api/newParty',  {
+    method:'POST',
+    headers:{ 'Content-Type':'appplication/json'},
+    body:JSON.stringify(addPartyData)
+  }
+  ).then(res =>{
+    return res.json();
+  }).then(data =>{
+    console.log(data)
+    console.log("yess")
+  })
+  }
+
   return (
     <>
       <div className="category container mx-auto px-auto">
@@ -25,11 +41,11 @@ function PartyList() {
       </div>
 
       {show && (
-        <div class="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute  top-30 right-0 bottom-0 left-0">
-          <div class="bg-white px-16 py-9 rounded-md text-center">
-            <Addform />
+        <div class="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute  top-0 right-0 bottom-0 left-0">
+          <div class="bg-white rounded-md text-center mt-20 py-3" > 
+            <AddForm  onAddParty={addPartyHandler}/>
             <button
-              t
+              
               onClick={handleClose}
               type="button"
               class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out mt-4"
