@@ -5,7 +5,7 @@ module.exports = {
     "./src/components/ListingParties.js",
     "./src/components/Navbar/index.js",
     "./src/components/LandingStyle.js",
-    "./src/components/AddFrom.js",
+    "./src/components/AddForm.js",
     "./src/pages/PartyDetail.js",
     "./src/pages/contact.js",
   ],
