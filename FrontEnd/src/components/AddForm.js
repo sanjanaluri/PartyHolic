@@ -41,16 +41,16 @@ function AddForm(props) {
     
     const addPartyData = {
       Party_name : enteredTitle,
-      Host_id : enteredHost,
-      Address_id : enteredAddress,
+      Host_id : parseInt(enteredHost),
+      Address_id : parseInt(enteredAddress),
       Tags : enteredTag,
       Description : enteredDesc,
       Start_time : enteredStart,
       End_time : enteredEnd,
       Image_id : enteredImage,
       Attendee_count : enteredCount,
-      Latitude : enteredLat,
-      Longitude :  enteredLong,
+      Latitude : parseFloat(enteredLat),
+      Longitude :  parseFloat(enteredLong),
     }
 
     console.log(addPartyData);
