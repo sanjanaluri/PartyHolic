@@ -41,9 +41,15 @@ function PartyList() {
       </div>
 
       {show && (
+<<<<<<< HEAD
         <div class="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute  top-0 right-0 bottom-0 left-0">
           <div class="bg-white rounded-md text-center mt-20 py-3" > 
             <AddForm  onAddParty={addPartyHandler}/>
+=======
+        <div class="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
+          <div class="bg-white rounded-md text-center mt-24 py-5">
+            <Addform />
+>>>>>>> cd2236d0edb5d8293c845520160001c4ac1f6889
             <button
               
               onClick={handleClose}

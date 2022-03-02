@@ -327,6 +327,10 @@ code {
   transform: translate(-50%, 50%);
 }
 
+.bg-img {
+  background-image: url("../public/assets/background.png");
+}
+
 .cont-text span {
   color: white;
   text-transform: uppercase;
