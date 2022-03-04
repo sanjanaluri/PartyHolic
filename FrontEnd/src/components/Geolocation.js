@@ -1,5 +1,5 @@
 import {useState,useEffect} from 'react';
-
+import React from "react";
 
 function GeoLocation(props) {
     const [lat, setLat] = useState(null);
@@ -24,7 +24,7 @@ function GeoLocation(props) {
 
   return (
     <div>
-        <button onClick={getLocation}>Get Location</button>
+        <button title="submit" onClick={getLocation}>Get Location</button>
         <p>{status}</p>
         {lat && <p>Latitude: {lat}</p>}
         {lng && <p>Longitude: {lng}</p>}
