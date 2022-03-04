@@ -1,5 +1,6 @@
 import { data } from "autoprefixer";
 import { useState } from "react";
+import React from "react";
 
 function ZipCode(props){
     const [zipcode, setZipCode] = useState('')
@@ -27,16 +28,16 @@ function ZipCode(props){
         })
   };
 
-        return (<div class="modal">
+        return (<div className="modal">
             <form onSubmit={() => {}}>
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Enter your zip code: </h5>
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Enter your zip code: </h5>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
             <input type="text" required id="code" name="zipcode" placeholder="eg. 32608" onChange={handleCodeChange} value={zipcode}/>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button t>Save</button>
             </div>
           </div>
