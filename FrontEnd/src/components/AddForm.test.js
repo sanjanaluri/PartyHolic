@@ -7,6 +7,19 @@ import React from "react";
 import { ReactDOM } from "react";
 import AddForm from "./AddForm";
 import { isTSAnyKeyword } from "@babel/types";
+import '@testing-library/jest-dom'
+
+test("Checking whether Host_id is rendering or not", () => {
+  render(<AddForm />);
+  const someElement = screen.getByText("Host Id"); 
+  expect(someElement).toBeInTheDocument(); 
+});
+
+test("Checking whether Description is rendering or not", () => {
+  render(<AddForm />);
+  const someElement = screen.getByText("Description"); 
+  expect(someElement).toBeInTheDocument(); 
+});
 
 test("PartyName should be able to accept text", () => {
   const result = render(<AddForm />);
