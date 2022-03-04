@@ -3,7 +3,7 @@ import { useState } from "react";
 import React from "react";
 
 function ZipCode(props){
-    const [zipcode, setZipCode] = useState('')
+    const [zipcode, setZipCode] = useState("")
     function handleCodeChange(event){
       
         setZipCode(event.target.value);

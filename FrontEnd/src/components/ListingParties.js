@@ -1,6 +1,6 @@
-import React from "react";
 import "../index.css";
 import EventsContext from "../context/EventsContext";
+import React from "react";
 import { useContext,useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";

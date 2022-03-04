@@ -1,7 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { useState, useRef } from "react";
-import { propTypes } from "react-bootstrap/esm/Image";
-import props from 'prop-types';
+import React from "react";
 
 function AddForm(props) {
   // const [formData, setFormData] = useState({});
@@ -66,7 +65,7 @@ function AddForm(props) {
 
               <div class="col-span-6 sm:col-span-3">
                 <label
-                  for="party_title"
+                  htmlFor="party_title"
                   class="block text-sm font-medium text-gray-700"
                 >
                   Party Name
@@ -82,7 +81,7 @@ function AddForm(props) {
 
               <div class="col-span-6 sm:col-span-3">
                 <label
-                  for="host_id"
+                  htmlFor="host_id"
                   class="block text-sm font-medium text-gray-700"
                 >
                   Host Id
@@ -98,7 +97,7 @@ function AddForm(props) {
               
               <div class="col-span-6 sm:col-span-4">
                 <label
-                  for="address_id"
+                  htmlFor="address_id"
                   class="block text-sm font-medium text-gray-700"
                 >
                   Address Id
@@ -114,7 +113,7 @@ function AddForm(props) {
 
               <div class="col-span-6 sm:col-span-3">
                 <label
-                  for="tags"
+                  htmlFor="tags"
                   class="block text-sm font-medium text-gray-700"
                 >
                   Tags
@@ -130,7 +129,7 @@ function AddForm(props) {
 
               <div class="col-span-6">
                 <label
-                  for="description"
+                  htmlFor="description"
                   class="block text-sm font-medium text-gray-700"
                 >
                   Description
@@ -146,7 +145,7 @@ function AddForm(props) {
 
               <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                 <label
-                  for="start_time"
+                  htmlFor="start_time"
                   class="block text-sm font-medium text-gray-700"
                 >
                   Start Time
@@ -162,7 +161,7 @@ function AddForm(props) {
 
               <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                 <label
-                  for="end_time"
+                  htmlFor="end_time"
                   class="block text-sm font-medium text-gray-700"
                 >
                   End Time
@@ -179,7 +178,7 @@ function AddForm(props) {
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label
-                  for="image"
+                  htmlFor="image"
                   class="block text-sm font-medium text-gray-700"
                 >
                   Image 
@@ -195,7 +194,7 @@ function AddForm(props) {
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label
-                  for="attendee_count"
+                  htmlFor="attendee_count"
                   class="block text-sm font-medium text-gray-700"
                 >
                   Attendee Count
@@ -211,7 +210,7 @@ function AddForm(props) {
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label
-                  for="latitude"
+                  htmlFor="latitude"
                   class="block text-sm font-medium text-gray-700"
                 >
                   Latitude
@@ -227,7 +226,7 @@ function AddForm(props) {
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label
-                  for="longitude"
+                  htmlFor="longitude"
                   class="block text-sm font-medium text-gray-700"
                 >
                   Longitude
@@ -243,7 +242,7 @@ function AddForm(props) {
 
             </div>
           </div>
-          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6" role="dialog">
             <button
               type="submit"
               class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
