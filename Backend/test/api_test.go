@@ -53,7 +53,7 @@ func TestGetPartyAPI(t *testing.T) {
 	data.Set("surname", "bar")
 	database.Database_setup()
 
-	c.Request, _ = http.NewRequest("POST", "api/parties", strings.NewReader(data.Encode()))
+	c.Request, _ = http.NewRequest("POST", "api/getParty/3", strings.NewReader(data.Encode()))
 	c.Request.Header.Set("X-Forwarded-For", "127.0.0.1")
 
 	controllers.GetParty(c)
@@ -65,6 +65,60 @@ func TestGetPartyAPI(t *testing.T) {
 	}
 
 	_, exists := response["data"]
+	fmt.Println("")
+	// Make some assertions on the correctness of the response.
+
+	assert.Equal(t, exists, true)
+}
+
+func TestGetAddressesAPI(t *testing.T) {
+	w := httptest.NewRecorder()
+	c, _ := gin.CreateTestContext(w)
+
+	data := url.Values{}
+	data.Set("party_id", "3")
+	data.Set("surname", "bar")
+	database.Database_setup()
+
+	c.Request, _ = http.NewRequest("POST", "api/addresses", strings.NewReader(data.Encode()))
+	c.Request.Header.Set("X-Forwarded-For", "127.0.0.1")
+
+	controllers.GetAddresses(c)
+	//assert.Equal(t, 200, w.Code)
+	var response gin.H
+	err := json.Unmarshal(w.Body.Bytes(), &response)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	_, exists := response["message"]
+	fmt.Println("")
+	// Make some assertions on the correctness of the response.
+
+	assert.Equal(t, exists, true)
+}
+
+func TestAddAddressAPI(t *testing.T) {
+	w := httptest.NewRecorder()
+	c, _ := gin.CreateTestContext(w)
+
+	data := url.Values{}
+	data.Set("party_id", "3")
+	data.Set("surname", "bar")
+	database.Database_setup()
+
+	c.Request, _ = http.NewRequest("POST", "api/addresses", strings.NewReader(data.Encode()))
+	c.Request.Header.Set("X-Forwarded-For", "127.0.0.1")
+
+	controllers.GetAddresses(c)
+	//assert.Equal(t, 200, w.Code)
+	var response gin.H
+	err := json.Unmarshal(w.Body.Bytes(), &response)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	_, exists := response["message"]
 	fmt.Println("")
 	// Make some assertions on the correctness of the response.
 
