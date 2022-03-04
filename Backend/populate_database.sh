@@ -2,7 +2,7 @@
 
 
 
-mysql -u root << EOF
+/usr/local/mysql/bin/mysql -u root --password='password' << EOF
 USE partyholic
 
 insert into users values(1,"Himakireeti", "Konda",1,"M","Cool Dude");
