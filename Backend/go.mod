@@ -33,6 +33,9 @@ require (
 	database v0.0.0
 	geo v0.0.0
 	github.com/gin-gonic/contrib v0.0.0-20201101042839-6a891bf89f19
+	github.com/google/go-cmp v0.5.7 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
+	gotest.tools v2.2.0+incompatible // indirect
 	models v0.0.0 // indirect
 
 )
