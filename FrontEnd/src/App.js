@@ -10,7 +10,6 @@ import SignIn from "./pages/signin";
 import PartyList from "./pages/PartyList";
 import { EventsProvider } from "./context/EventsContext";
 import PartyDetail from "./pages/PartyDetail";
-import EventsContext from "./context/EventsContext";
 
 
 function App(props) {
