@@ -2,10 +2,8 @@
 SE Project - Spring 2022
 
 ## Team Members
-Medha Naik, 
-HimaKireeti Konda, 
-Santosh Maturi, 
-Sanjana Aluri
+Backend - Medha Naik, HimaKireeti Konda 
+Frontend - Santosh Maturi, Sanjana Aluri
 
 ## Technology Stack
 Go, React
