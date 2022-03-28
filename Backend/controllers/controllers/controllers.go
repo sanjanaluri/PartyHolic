@@ -164,6 +164,18 @@ func CancelParty(c *gin.Context) {
 
 }
 
+func CancelPartyByID(c *gin.Context) {
+	id := c.Param("party_id")
+
+	sql_connection, err2 := sql.Open("mysql", "root:@tcp(0.0.0.0:3306)/partyholic")
+	res, err := sql_connection.Query("insert into cancelled_parties (select * from parties where party_id=?)", id)
+	defer sql_connection.Close()
+	fmt.Println(res, err2, err)
+
+	database.DB.Delete(&models.Parties{}, id)
+
+}
+
 func AttendParty(c *gin.Context) {
 	var attendee models.AttendeeList
 	c.BindJSON(&attendee)
