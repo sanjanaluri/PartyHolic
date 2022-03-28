@@ -42,9 +42,7 @@ const SignIn = () => {
             </div>
 
             <div class="text-right mt-2">
-              <a
-                class="text-sm font-semibold text-gray-700 hover:text-purple-700 focus:text-purple-700"
-              >
+              <a class="text-sm font-semibold text-gray-700 hover:text-purple-700 focus:text-purple-700">
                 Forgot Password?
               </a>
             </div>
@@ -56,10 +54,30 @@ const SignIn = () => {
             >
               Log In
             </button>
-          </form>         
+          </form>
+          <hr class="my-6 border-gray-300 w-full"></hr>
+          <p class="mt-8">
+            Need an account?{" "}
+            <a
+              href="#"
+              class="text-purple-500 hover:text-purple-700 font-semibold"
+            >
+              Create an account
+            </a>
+          </p>
+
+          <p class="text-sm text-gray-500 mt-12">
+            &copy; 2022 - All Rights Reserved.
+          </p>
         </div>
       </div>
-      
+      <div class="bg-purple-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
+            <img
+              src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3870&q=80"
+              alt=""
+              class="w-full h-full object-cover"
+            ></img>
+          </div>
     </section>
   );
 };
