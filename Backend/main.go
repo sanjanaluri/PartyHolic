@@ -35,8 +35,6 @@ func main() {
 
 	r.GET("/api/cancelParty/:party_id", controllers.CancelParty)
 
-	r.GET("/api/cancelPartyById/:party_id", controllers.CancelPartyByID)
-
 	r.POST("/api/attendParty", controllers.AttendParty)
 	r.POST("/api/cancelAttendance", controllers.CancelAttendance)
 
