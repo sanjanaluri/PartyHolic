@@ -3,16 +3,16 @@ package main
 import (
 	"controllers/controllers"
 	"database/database"
-	"geo/geo"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
+	"github.com/himakireeti/PartyHolic/Backend/controllers/controllers"
 )
 
 func main() {
 
-	geo.GeoAddress("Gainesvile")
+	// geo.GeoAddress("Gainesvile")
 
 	database.Database_setup()
 	r := gin.Default()
@@ -30,6 +30,9 @@ func main() {
 	r.POST("/api/newParty", controllers.AddParty)
 	r.POST("/api/parties", controllers.GetParties)
 	r.GET("/api/getParty/:party_id", controllers.GetParty)
+
+	r.GET("/api/getPartyById/:party_id", controllers.GetPartyByID)
+
 	r.GET("/api/cancelParty/:party_id", controllers.CancelParty)
 	r.POST("/api/attendParty", controllers.AttendParty)
 	r.POST("/api/cancelAttendance", controllers.CancelAttendance)
