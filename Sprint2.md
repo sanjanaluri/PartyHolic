@@ -33,6 +33,9 @@ Automation testing: Cypress
 
 Unit testing: JEST
 
+<img width="1436" alt="image" src="https://user-images.githubusercontent.com/43620388/156867446-54565c6c-0748-45cd-903e-bac319a515d8.png">
+
+
 
 
 #### As a front end developer, I want to create landing page
