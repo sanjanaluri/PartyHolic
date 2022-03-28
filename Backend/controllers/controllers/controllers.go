@@ -136,22 +136,6 @@ func GetParty(c *gin.Context) {
 
 }
 
-func GetPartyByID(c *gin.Context) {
-	var party_details models.FullPartyDetails
-
-	party_columns := "parties.Party_id, parties.party_name, parties.Start_time, parties.end_time, parties.tags, parties.description, parties.image_id, parties.attendee_count as interested_people,"
-	user_columns := "users.first_name, users.last_name,"
-	address_columns := "addresses.Lane_apt, addresses.City, addresses.State, addresses.Country, addresses.Latitude, addresses.Longitude"
-
-	user_join := "JOIN users on users.user_id = parties.host_id"
-	address_join := "Join addresses on addresses.address_id = parties.address_id"
-
-	database.DB.Table("parties").Select(party_columns+user_columns+address_columns).Where("parties.party_id = ?", c.Param("party_id")).Joins(user_join).Joins(address_join).Find(&party_details)
-
-	c.JSON(http.StatusOK, gin.H{"data": party_details})
-
-}
-
 func CancelParty(c *gin.Context) {
 	id := c.Param("party_id")
 
