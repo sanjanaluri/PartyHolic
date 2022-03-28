@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: [
     "./src/pages/home.js",
@@ -8,11 +10,16 @@ module.exports = {
     "./src/components/AddForm.js",
     "./src/pages/PartyDetail.js",
     "./src/pages/contact.js",
+    "./src/pages/signin.js",
   ],
   theme: {
     extend: {
       blur: {
         xs: "2px",
+      },
+      colors: {
+        sky: colors.sky,
+        cyan: colors.cyan,
       },
     },
     backgroundImage: {
