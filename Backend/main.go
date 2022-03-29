@@ -2,8 +2,7 @@ package main
 
 import (
 	"controllers/controllers"
-	"fmt"
-
+	"database/database"
 	"geo/geo"
 
 	"github.com/gin-contrib/cors"
@@ -13,8 +12,9 @@ import (
 
 func main() {
 
-	fmt.Println(geo.GeoAddress("Gainesvile"))
+	geo.GeoAddress("Gainesvile")
 
+	database.Database_setup()
 	r := gin.Default()
 	r.Use(cors.Default())
 	r.Static("/images", "./images")
@@ -30,9 +30,7 @@ func main() {
 	r.POST("/api/newParty", controllers.AddParty)
 	r.POST("/api/parties", controllers.GetParties)
 	r.GET("/api/getParty/:party_id", controllers.GetParty)
-
 	r.GET("/api/cancelParty/:party_id", controllers.CancelParty)
-
 	r.POST("/api/attendParty", controllers.AttendParty)
 	r.POST("/api/cancelAttendance", controllers.CancelAttendance)
 

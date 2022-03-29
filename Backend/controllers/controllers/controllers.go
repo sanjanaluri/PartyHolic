@@ -91,10 +91,20 @@ func AddParty(c *gin.Context) {
 	var address_id AddressID
 
 	sql_connection, _ := sql.Open("mysql", "root:@tcp(0.0.0.0:3306)/partyholic")
-	sql_connection.QueryRow("select (address_id) from addresses where lane_apt=?", input.Lane_apt).Scan(&address_id)
+	sql_connection.QueryRow("select address_id from addresses where latitude=? and longitude= ?", latLon[0], latLon[1]).Scan(&address_id)
+	if address_id.Address_id == 0 {
+		address := models.Addresses{Lane_apt: input.Lane_apt,
+			City:      input.City,
+			State:     input.State,
+			Country:   input.Country,
+			Latitude:  latLon[0],
+			Longitude: latLon[1],
+		}
 
-	fmt.Println(address_id)
+		database.DB.Create(&address)
+		sql_connection.QueryRow("select (address_id) from addresses where latitude=? and longitude=?", latLon[0], latLon[1]).Scan(&address_id)
 
+	}
 	party := &models.Parties{
 
 		Party_name: input.Party_name,
@@ -113,7 +123,6 @@ func AddParty(c *gin.Context) {
 		Latitude:  latLon[0],
 		Longitude: latLon[1],
 	}
-	fmt.Println(party)
 
 	database.DB.Create(&party)
 
