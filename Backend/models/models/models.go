@@ -23,6 +23,26 @@ type Users struct {
 	Bio        string `json:"Bio"`
 }
 
+type PartyTemp struct {
+	// Party_id   int    `gorm:"primary_key;type:int;" json:"Party_id"`
+	Party_name string `json:"Party_name"`
+
+	Host_id int `json:"Host_id"`
+
+	Lane_apt string `json:"Lane_apt"`
+	City     string `json:"City"`
+	State    string `json:"State"`
+	Country  string `json:"Country"`
+
+	Start_time time.Time `json:"Start_time"`
+	End_time   time.Time `json:"End_time"`
+
+	Tags        string `json:"Tags"`
+	Description string `json:"Description"`
+
+	Image_id string `json:"image_id"`
+}
+
 type Parties struct {
 	Party_id   int    `gorm:"primary_key;type:int;" json:"Party_id"`
 	Party_name string `json:"Party_name"`
@@ -41,7 +61,7 @@ type Parties struct {
 	Attendee_count int    `json:"interested_people"`
 
 	Longitude float64 `json:"Longitude"`
-	Latitude  float32 `json:"Latitude"`
+	Latitude  float64 `json:"Latitude"`
 }
 
 type CancelledParties struct {

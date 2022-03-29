@@ -73,32 +73,47 @@ func AddUser(c *gin.Context) {
 }
 
 func AddParty(c *gin.Context) {
-	var input models.Parties
+	fmt.Println("Input received")
+
+	var input models.PartyTemp
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	// new_address_id = //database fetch
+	fmt.Println("Correct Input")
+
+	var latLon = geo.GeoAddress(input.Lane_apt + " " + input.City + " " + input.State + " " + input.Country)
+	fmt.Println(latLon)
+	type AddressID struct {
+		Address_id int
+	}
+	var address_id AddressID
+
+	sql_connection, _ := sql.Open("mysql", "root:@tcp(0.0.0.0:3306)/partyholic")
+	sql_connection.QueryRow("select (address_id) from addresses where lane_apt=?", input.Lane_apt).Scan(&address_id)
+
+	fmt.Println(address_id)
 
 	party := &models.Parties{
 
 		Party_name: input.Party_name,
 		Host_id:    input.Host_id,
-		Address_id: input.Address_id,
-
-		Tags:        input.Tags,
-		Description: input.Description,
+		Address_id: address_id.Address_id,
 
 		Start_time: input.Start_time,
 		End_time:   input.End_time,
 
-		Image_id:       input.Image_id,
-		Attendee_count: input.Attendee_count,
+		Tags:        input.Tags,
+		Description: input.Description,
 
-		Latitude:  input.Latitude,
-		Longitude: input.Longitude,
+		Image_id:       input.Image_id,
+		Attendee_count: 0,
+
+		Latitude:  latLon[0],
+		Longitude: latLon[1],
 	}
+	fmt.Println(party)
 
 	database.DB.Create(&party)
 
