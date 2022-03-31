@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   return (
@@ -35,14 +36,14 @@ const SignUp = () => {
                 name=""
                 id=""
                 placeholder="Enter Last Name"
-                minlength="6"
+                minlength="3"
                 class="w-full px-4 py-1 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500
                   focus:bg-white focus:outline-none"
                 required
               ></input>
             </div>
             </div>
-            <div class="mt-2">
+            <div class="mt--2">
               <label class="block text-gray-700">Email Address</label>
               <input
                 type="email"
@@ -160,7 +161,7 @@ const SignUp = () => {
               href="#"
               class="text-purple-500 hover:text-purple-700 font-semibold"
             >
-              Login here
+              <Link to="/sign-in"> Login here </Link>
             </a>
           </p>
 
@@ -174,7 +175,7 @@ const SignUp = () => {
             <img
               src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3870&q=80"
               alt=""
-              class="w-full h-full object-contain "
+              class="w-full h-full object-cover "
             ></img>
           </div>
           
