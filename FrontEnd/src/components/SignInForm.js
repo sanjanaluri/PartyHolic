@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { values, size } from "lodash";
 import { toast } from "react-toastify";
-import {isEmailValid} from "../Utils/validations"
+import { isEmailValid } from "../Utils/validations";
+import { signInApi, setTokenApi } from "../api/auth";
 
 const SignInForm = () => {
-  const { setRefreshCheckLogin } = true; //props;
+  // const { setRefreshCheckLogin } = true; //props;
   const [formData, setFormData] = useState(initialFormValue());
   const [signInLoading, setSignInLoading] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    console.log("success");
 
     let validationCount = 0;
     values(formData).some((value) => {
@@ -29,10 +31,12 @@ const SignInForm = () => {
         signInApi(formData)
           .then((response) => {
             if (response.message) {
-              toast.warning(response.message);
+              console.log(response.message);
+              console.log(formData);
             } else {
               setTokenApi(response.Token);
               setRefreshCheckLogin(true);
+              console.log(formData);
             }
           })
           .catch(() => {
@@ -40,8 +44,9 @@ const SignInForm = () => {
           })
           .finally(() => {
             setSignInLoading(false);
+            console.log(formData);
           });
-        //toast.success("Login Successful");
+        console.log("Login Successful");
       }
     }
 
