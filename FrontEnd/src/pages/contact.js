@@ -86,8 +86,9 @@ const Contact = () => {
           <div className="md:flex md:items-center">
             <div className="items-center" role="dialog">
               <button
-                className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                type="button"
+                className="
+                w-full block bg-purple-500 hover:bg-purple-400 focus:bg-purple-400 text-white font-semibold rounded-lg
+                px-4 py-3 mt-6"
               >
                 Send
               </button>

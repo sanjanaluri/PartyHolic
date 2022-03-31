@@ -14,7 +14,7 @@ const SignUp = () => {
           </h1>
 
           <form class="mt-6">
-          <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="flex flex-wrap -mx-3 mb-2">
           <div class="mt-2 w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block text-gray-700">First Name</label>
               <input
@@ -43,7 +43,7 @@ const SignUp = () => {
               ></input>
             </div>
             </div>
-            <div class="mt--2">
+            <div class="mt-2">
               <label class="block text-gray-700">Email Address</label>
               <input
                 type="email"
