@@ -10,22 +10,38 @@ import SignIn from "./pages/signin";
 import PartyList from "./pages/PartyList";
 import { EventsProvider } from "./context/EventsContext";
 import PartyDetail from "./pages/PartyDetail";
-
+import { ToastContainer } from "react-toastify";
+import { AuthContext } from "../src/Utils/contexts";
+import { isUserLogedApi } from "./api/auth";
 
 function App(props) {
+  const [user, setUser] = useState(null);
+  const [loadUser, setLoadUser] = useState(false);
+  const [refreshCheckLogin, setRefreshCheckLogin] = useState(false);
+  console.log(refreshCheckLogin);
+  // useEffect(() => {
+  //   setUser(isUserLogedApi());
+  //   setRefreshCheckLogin(false);
+  //   setLoadUser(true);
+  // }, [refreshCheckLogin]);
+  // setRefreshCheckLogin={setRefreshCheckLogin}
+  // if (!loadUser) return null;
 
   return (
     <EventsProvider>
       <Router>
-      <Navbar />
+        <Navbar />
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/partylist" element={<PartyList />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/partyDetail/:partyId" element={<PartyDetail/>}/>
+          <Route
+            path="/sign-in"
+            element={<SignIn setRefreshCheckLogin={setRefreshCheckLogin} />}
+          />
+          <Route path="/partyDetail/:partyId" element={<PartyDetail />} />
         </Routes>
       </Router>
     </EventsProvider>

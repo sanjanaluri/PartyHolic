@@ -3,9 +3,10 @@ import { values, size } from "lodash";
 import { toast } from "react-toastify";
 import { isEmailValid } from "../Utils/validations";
 import { signInApi, setTokenApi } from "../api/auth";
+import { API_HOST, TOKEN } from "../Utils/constant";
 
-const SignInForm = () => {
-  // const { setRefreshCheckLogin } = true; //props;
+const SignInForm = (props) => {
+  const { setRefreshCheckLogin } = props;
   const [formData, setFormData] = useState(initialFormValue());
   const [signInLoading, setSignInLoading] = useState(false);
 
@@ -32,11 +33,13 @@ const SignInForm = () => {
           .then((response) => {
             if (response.message) {
               console.log(response.message);
-              console.log(formData);
+              //console.log(formData);
+              //console.log("setTokenApi and setRefreshCheckLogin");
             } else {
-              setTokenApi(response.Token);
+              // setTokenApi(response.Token);
+              localStorage.setItem(TOKEN, response.Token);
               setRefreshCheckLogin(true);
-              console.log(formData);
+              console.log("setRefreshCheckLogin to TRUE");
             }
           })
           .catch(() => {
@@ -44,12 +47,10 @@ const SignInForm = () => {
           })
           .finally(() => {
             setSignInLoading(false);
-            console.log(formData);
           });
         console.log("Login Successful");
       }
     }
-
     console.log(validationCount);
   };
 
@@ -110,7 +111,7 @@ const SignInForm = () => {
               class="w-full block bg-purple-500 hover:bg-purple-400 focus:bg-purple-400 text-white font-semibold rounded-lg
                 px-4 py-3 mt-6"
             >
-              Log In
+              {!signInLoading ? "Login to Gator News" : "check"}
             </button>
           </form>
           <hr class="my-6 border-gray-300 w-full"></hr>

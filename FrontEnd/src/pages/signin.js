@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import SignInForm from "../components/SignInForm"
 
-const SignIn = () => {
-  const {setRefreshCheckLogin}= true; //props;
+const SignIn = (props) => {
+  const {setRefreshCheckLogin}= props;
 
   return (
     <SignInForm setRefreshCheckLogin={setRefreshCheckLogin}/>
