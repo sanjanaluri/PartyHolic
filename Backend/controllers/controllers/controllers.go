@@ -73,31 +73,51 @@ func AddUser(c *gin.Context) {
 }
 
 func AddParty(c *gin.Context) {
-	var input models.Parties
+	var input models.PartyTemp
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+	var latLon = geo.GeoAddress(input.Lane_apt + " " + input.City + " " + input.State + " " + input.Country)
 
-	// new_address_id = //database fetch
+	type AddressTemp struct {
+		Address_id int
+	}
 
+	var ip AddressTemp
+
+	database.DB.Table("addresses").Select("address_id").Where("latitude = ? and longitude = ?", latLon[0], latLon[1]).Find(&ip)
+
+	if ip.Address_id == 0 {
+		address := models.Addresses{Lane_apt: input.Lane_apt,
+			City:      input.City,
+			State:     input.State,
+			Country:   input.Country,
+			Latitude:  latLon[0],
+			Longitude: latLon[1],
+		}
+
+		database.DB.Create(&address)
+		database.DB.Table("addresses").Select("address_id").Where("latitude = ? and longitude = ?", latLon[0], latLon[1]).Find(&ip)
+
+	}
 	party := &models.Parties{
 
 		Party_name: input.Party_name,
 		Host_id:    input.Host_id,
-		Address_id: input.Address_id,
-
-		Tags:        input.Tags,
-		Description: input.Description,
+		Address_id: ip.Address_id,
 
 		Start_time: input.Start_time,
 		End_time:   input.End_time,
 
-		Image_id:       input.Image_id,
-		Attendee_count: input.Attendee_count,
+		Tags:        input.Tags,
+		Description: input.Description,
 
-		Latitude:  input.Latitude,
-		Longitude: input.Longitude,
+		Image_id:       input.Image_id,
+		Attendee_count: 0,
+
+		Latitude:  latLon[0],
+		Longitude: latLon[1],
 	}
 
 	database.DB.Create(&party)
@@ -156,7 +176,7 @@ func AttendParty(c *gin.Context) {
 	var count int
 
 	sql_connection, _ := sql.Open("mysql", "root:@tcp(0.0.0.0:3306)/partyholic")
-	sql_connection.QueryRow("select count(party_id) from attendee_lists where party_id=?", attendee.Party_id).Scan(&count)
+	sql_connection.QueryRow("select count(distinct user_id) from attendee_lists where party_id=?", attendee.Party_id).Scan(&count)
 	fmt.Println(count)
 	sql_connection.Query("update parties set attendee_count = ? where party_id =?", count+1, attendee.Party_id)
 	defer sql_connection.Close()
@@ -178,7 +198,3 @@ func CancelAttendance(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": attendee})
 
 }
-
-// func options(c *gin.Context) {
-// 	c.JSON(http.StatusOK, gin.H{"message": "options Called"})
-// }
