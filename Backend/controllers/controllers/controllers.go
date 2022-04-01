@@ -9,6 +9,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func GetAddresses(c *gin.Context) {
@@ -50,6 +51,7 @@ func AddAddress(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": input})
 }
 
+// register
 func AddUser(c *gin.Context) {
 
 	var input models.Users
@@ -58,12 +60,16 @@ func AddUser(c *gin.Context) {
 		return
 	}
 
+	var password, _ = EncryptPassword(input.Password)
+
 	user := models.Users{User_id: input.User_id,
 		First_name: input.First_name,
 		Last_name:  input.Last_name,
 		Address_id: input.Address_id,
 		Gender:     input.Gender,
 		Bio:        input.Bio,
+		Email:      input.Email,
+		Password:   password,
 	}
 
 	database.DB.Create(&user)
@@ -197,4 +203,35 @@ func CancelAttendance(c *gin.Context) {
 	defer sql_connection.Close()
 	c.JSON(http.StatusOK, gin.H{"data": attendee})
 
+}
+
+func EncryptPassword(pass string) (string, error) {
+	cost := 8
+	bytes, err := bcrypt.GenerateFromPassword([]byte(pass), cost)
+	return string(bytes), err
+
+}
+
+func CheckUserExists(email string) (models.Users, bool, int) {
+
+	var result models.Users
+
+	if err := database.DB.Where("email = ?", email).First(&result).Error; err != nil {
+		return result, false, result.User_id
+	}
+	return result, true, result.User_id
+}
+
+func TryLogin(email string, password string) (models.Users, bool) {
+	use, found, _ := CheckUserExists(email)
+	if found == false {
+		return use, false
+	}
+	passwordBytes := []byte(password)
+	passwordBD := []byte(use.Password)
+	err := bcrypt.CompareHashAndPassword(passwordBD, passwordBytes)
+	if err != nil {
+		return use, false
+	}
+	return use, true
 }

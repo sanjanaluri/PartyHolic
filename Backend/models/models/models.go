@@ -2,6 +2,8 @@ package models
 
 import (
 	"time"
+
+	jwt "github.com/dgrijalva/jwt-go"
 )
 
 type Addresses struct {
@@ -21,6 +23,8 @@ type Users struct {
 	Address_id uint64 `json:"Address_id"`
 	Gender     string `json:"Gender"`
 	Bio        string `json:"Bio"`
+	Email      string `json:"email"`
+	Password   string `json:"password,omitempty"`
 }
 
 type PartyTemp struct {
@@ -143,4 +147,15 @@ type FullPartyDetails struct {
 type AttendeeList struct {
 	User_id  int `json:"user_id"`
 	Party_id int `json:"party_id"`
+}
+
+// Token Generation
+type AnswerLogin struct {
+	Token string `json:token,omitempty`
+}
+
+type Claim struct {
+	Email string `json:"email"`
+	ID    int    `json:"_id,omitempty"`
+	jwt.StandardClaims
 }
