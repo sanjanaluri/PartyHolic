@@ -18,9 +18,4 @@ test("Checking Zipcode component", () => {
 render(<ZipCode/>)
 });
 
-test("Checking Zipcode component", () => {
-    //   const element = document.createElement("div");
-    //   expect(element).not.toBeNull();
-    render(<ZipCode/>);
-    
-    });
+

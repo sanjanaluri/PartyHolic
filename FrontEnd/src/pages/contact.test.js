@@ -8,7 +8,7 @@ import { ReactDOM } from "react";
 import Contact from "./contact";
 import { isTSAnyKeyword } from "@babel/types";
 
-test("Checking Zipcode component", () => {
+test("Checking Contact component", () => {
   //   const element = document.createElement("div");
   //   expect(element).not.toBeNull();
   render(<Contact />);

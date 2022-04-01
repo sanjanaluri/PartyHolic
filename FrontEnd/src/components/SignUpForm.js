@@ -2,8 +2,17 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
+import { Form, Button } from "react-bootstrap";
+import {  useRef } from "react";
 
-function SignUpForm(props){
+
+function SignUpForm(){
+
+    function submitHandler(event) {
+        event.preventDefault();
+        console.log("submitted");
+        alert("submitted");
+    }
 
 return (
     <section class="flex flex-col md:flex-row h-full items-center">
@@ -16,7 +25,7 @@ return (
             Register Today
           </h1>
 
-          <form class="mt-6">
+          <form class="mt-6" onSubmit={submitHandler}>
           <div className="flex flex-wrap -mx-3 mb-2">
           <div class="mt-2 w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block text-gray-700">First Name</label>

@@ -5,6 +5,8 @@ import { isEmailValid } from "../Utils/validations";
 import { signInApi, setTokenApi } from "../api/auth";
 import { API_HOST, TOKEN } from "../Utils/constant";
 import { Link } from 'react-router-dom';
+import { Form, Button } from "react-bootstrap";
+import { useRef } from "react";
 
 const SignInForm = (props) => {
   const { setRefreshCheckLogin } = props;
@@ -80,8 +82,8 @@ const SignInForm = (props) => {
                 placeholder="Enter Email Address"
                 defaultValue={formData.email}
                 class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none"
-                autofocus
-                autocomplete
+                autoFocus
+                autoComplete
                 required
               ></input>
             </div>
