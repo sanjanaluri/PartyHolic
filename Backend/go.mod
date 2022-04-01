@@ -47,3 +47,6 @@ replace database v0.0.0 => ./database/
 replace models v0.0.0 => ./models/
 
 replace controllers v0.0.0 => ./controllers/
+
+
+replace auth v0.0.0 => ./auth/
