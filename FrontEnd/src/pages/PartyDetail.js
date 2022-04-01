@@ -9,6 +9,7 @@ import {
   InfoWindow,
 } from "react-google-maps";
 import mapStyles from "../components/mapStyles";
+import AttendingButton from "../components/Attendingbutton";
 
 function Map(partyData) {
   const [selectedPark, setSelectedPark] = useState(false);
@@ -94,7 +95,7 @@ function PartyDetail(props) {
       {partyIdFetched && (
         <div>
           <div
-            className="grid grid-cols-2 mt-20 mb-10"
+            className="grid grid-cols-2 mt-0 mb-10"
             style={{
               width: "100%",
               height: "60vh",
@@ -104,7 +105,7 @@ function PartyDetail(props) {
               <img
                 alt="blog photo"
                 src={"http://localhost:8080/images/" + partyData.data.image_id}
-                className="object-cover w-full"
+                className="object-fill w-full"
               />
             </div>
             <div>
@@ -182,9 +183,18 @@ function PartyDetail(props) {
                   {partyData.data.interested_people}
                   </dd>
                 </div>
+
+                <div className="bg-gray-50 px-30 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
+                  
+                  <AttendingButton/>
+                  
+                </div>
+                
               </div>
+              
             </div>
           </div>
+          
           <div
             style={{
               width: "100%",
@@ -193,6 +203,7 @@ function PartyDetail(props) {
               bottom: "0px",
             }}
           >
+            
             <MapWrapped
               googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAPirDDFz7WN4fP83viAvaBhVTQr6t0i7A`}
               loadingElement={<div style={{ height: `100%` }} />}

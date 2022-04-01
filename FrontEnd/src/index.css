@@ -86,7 +86,7 @@ code {
 }
 
 .category {
-  margin-bottom: 100vh;
+  margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
 }
