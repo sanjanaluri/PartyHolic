@@ -31,8 +31,9 @@ const Navbar = () => {
           <NavLink to="/sign-up" activeStyle>
             Sign Up
           </NavLink>
-          {/* Second Nav */}
-          <NavLink to="/sign-in" activeStyle>Sign In</NavLink>
+          <NavLink to="/sign-in" activeStyle>
+            Sign In
+          </NavLink>
         </NavMenu>
       </Nav>
     </>

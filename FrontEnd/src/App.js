@@ -36,8 +36,9 @@ function App(props) {
 
   return (
     <EventsProvider>
-        <Navbar />
+        <Router>
         <Routes>
+        <Navbar />
           <Route path="/" exact element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/partylist" element={<PartyList />} />
@@ -49,6 +50,7 @@ function App(props) {
           />
           <Route path="/partyDetail/:partyId" element={<PartyDetail />} />
         </Routes>
+        </Router>
     </EventsProvider>
   );
 }

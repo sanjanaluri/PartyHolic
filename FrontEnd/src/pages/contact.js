@@ -13,7 +13,7 @@ const Contact = () => {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          marginTop: "40px",
+          
         }}
         className="bg-img"
       >
