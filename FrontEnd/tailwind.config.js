@@ -11,6 +11,7 @@ module.exports = {
     "./src/pages/PartyDetail.js",
     "./src/pages/contact.js",
     "./src/pages/signin.js",
+    "./src/components/SignInForm.js",
   ],
   theme: {
     extend: {
