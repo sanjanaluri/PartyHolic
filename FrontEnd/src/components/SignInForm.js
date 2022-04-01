@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { isEmailValid } from "../Utils/validations";
 import { signInApi, setTokenApi } from "../api/auth";
 import { API_HOST, TOKEN } from "../Utils/constant";
+import { Link } from 'react-router-dom';
 
 const SignInForm = (props) => {
   const { setRefreshCheckLogin } = props;
@@ -121,7 +122,7 @@ const SignInForm = (props) => {
               href="#"
               class="text-purple-500 hover:text-purple-700 font-semibold"
             >
-              Create an account
+              <Link to="/sign-up"> Create an account </Link>
             </a>
           </p>
 
