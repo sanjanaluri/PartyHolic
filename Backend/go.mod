@@ -2,10 +2,13 @@ module github.com/himakireeti/PartyHolic/Backend
 
 go 1.17
 
-require github.com/gin-gonic/gin v1.7.7
+require (
+	github.com/gin-contrib/cors v1.3.1
+	github.com/gin-gonic/gin v1.7.7
+)
 
 require (
-	github.com/gin-contrib/cors v1.3.1 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.13.0 // indirect
 	github.com/go-playground/universal-translator v0.17.0 // indirect
@@ -35,7 +38,7 @@ require (
 	github.com/gin-gonic/contrib v0.0.0-20201101042839-6a891bf89f19
 	github.com/google/go-cmp v0.5.7 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	gotest.tools v2.2.0+incompatible // indirect
+	gotest.tools v2.2.0+incompatible
 	models v0.0.0 // indirect
 
 )
@@ -47,6 +50,5 @@ replace database v0.0.0 => ./database/
 replace models v0.0.0 => ./models/
 
 replace controllers v0.0.0 => ./controllers/
-
 
 replace auth v0.0.0 => ./auth/
