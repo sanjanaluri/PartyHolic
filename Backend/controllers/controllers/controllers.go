@@ -229,6 +229,21 @@ func CancelAttendance(c *gin.Context) {
 
 }
 
+func UserLogin(c *gin.Context) {
+
+	var loginInfo models.Email_Pass
+	c.BindJSON(&loginInfo)
+	fmt.Println(loginInfo)
+
+	// user, valid := TryLogin(loginInfo.email_id, loginInfo.password)
+
+	// if valid != false {
+	// c.JSON(http.StatusOK, gin.H{"user": "", "Status": "Invalid Information"})
+	// }
+
+	// c.JSON(http.StatusOK, gin.H{"user": user, "Status": "Invalid Information"})
+}
+
 func EncryptPassword(pass string) (string, error) {
 	cost := 8
 	bytes, err := bcrypt.GenerateFromPassword([]byte(pass), cost)
