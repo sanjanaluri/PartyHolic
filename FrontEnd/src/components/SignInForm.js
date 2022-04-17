@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { isEmailValid } from "../Utils/validations";
 import { signInApi, setTokenApi } from "../api/auth";
 import { API_HOST, TOKEN } from "../Utils/constant";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { useRef } from "react";
 
@@ -62,48 +62,48 @@ const SignInForm = (props) => {
   };
 
   return (
-    <section class="flex flex-col md:flex-row h-full items-center">
+    <section className="flex flex-col md:flex-row h-full items-center">
       <div
-        class="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+        className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
           flex items-center justify-center"
       >
-        <div class="w-full h-100">
-          <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">
+        <div className="w-full h-100">
+          <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">
             Log in to your account
           </h1>
 
-          <form class="mt-6" onSubmit={onSubmit} onChange={onChange}>
+          <form className="mt-6" onSubmit={onSubmit} onChange={onChange}>
             <div>
-              <label class="block text-gray-700">Email Address</label>
+              <label className="block text-gray-700">Email Address</label>
               <input
                 type="email"
                 name="email"
                 id="emailID"
                 placeholder="Enter Email Address"
                 defaultValue={formData.email}
-                class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none"
                 autoFocus
                 autoComplete
                 required
               ></input>
             </div>
 
-            <div class="mt-4">
-              <label class="block text-gray-700">Password</label>
+            <div className="mt-4">
+              <label className="block text-gray-700">Password</label>
               <input
                 type="password"
                 name="password"
                 id=""
                 defaultValue={formData.password}
                 placeholder="Enter Password"
-                class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500
+                className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500
                   focus:bg-white focus:outline-none"
                 required
               ></input>
             </div>
 
-            <div class="text-right mt-2">
-              <a class="text-sm font-semibold text-gray-700 hover:text-purple-700 focus:text-purple-700">
+            <div className="text-right mt-2">
+              <a className="text-sm font-semibold text-gray-700 hover:text-purple-700 focus:text-purple-700">
                 Forgot Password?
               </a>
             </div>
@@ -111,33 +111,30 @@ const SignInForm = (props) => {
             <button
               role="submitForm"
               type="submit"
-              class="w-full block bg-purple-500 hover:bg-purple-400 focus:bg-purple-400 text-white font-semibold rounded-lg
+              className="w-full block bg-purple-500 hover:bg-purple-400 focus:bg-purple-400 text-white font-semibold rounded-lg
                 px-4 py-3 mt-6"
             >
-              {!signInLoading ? "Login to Gator News" : "check"}
+              {!signInLoading ? "Login" : "check"}
             </button>
           </form>
-          <hr class="my-6 border-gray-300 w-full"></hr>
-          <p class="mt-8">
+          <hr className="my-6 border-gray-300 w-full"></hr>
+          <p className="mt-8">
             Need an account?{" "}
-            <a
-              href="#"
-              class="text-purple-500 hover:text-purple-700 font-semibold"
-            >
+            <a className="text-purple-500 hover:text-purple-700 font-semibold">
               <Link to="/sign-up"> Create an account </Link>
             </a>
           </p>
 
-          <p class="text-sm text-gray-500 mt-12">
+          <p className="text-sm text-gray-500 mt-12">
             &copy; 2022 - All Rights Reserved.
           </p>
         </div>
       </div>
-      <div class="bg-purple-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
+      <div className="bg-purple-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
         <img
           src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3870&q=80"
           alt=""
-          class="w-full h-full object-cover"
+          className="w-full h-full object-cover"
         ></img>
       </div>
     </section>
