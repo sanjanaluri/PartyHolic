@@ -11,45 +11,40 @@ function AddForm(props) {
   // };
 
   const titleInputRef = useRef();
-  const hostInputRef = useRef();
-  const addressInputRef = useRef();
   const tagsInputRef = useRef();
   const descInputRef = useRef();
   const startInputRef = useRef();
   const endInputRef = useRef();
-  const imageInputRef = useRef();
-  const countInputRef = useRef();
-  const latInputRef = useRef();
-  const longInputRef = useRef();
+  const addrInputRef = useRef();
+  const cityInputRef = useRef();
+  const countryInputRef = useRef();
+  const stateInputRef = useRef();
 
   function submitHandler(event) {
     event.preventDefault();
     const enteredTitle = titleInputRef.current.value;
-    const enteredHost = hostInputRef.current.value;
-    const enteredAddress = addressInputRef.current.value;
     const enteredTag = tagsInputRef.current.value;
     const enteredDesc = descInputRef.current.value;
     const enteredStart = startInputRef.current.value;
     const enteredEnd = endInputRef.current.value;
-    const enteredImage = imageInputRef.current.value;
-    const enteredCount = countInputRef.current.value;
-    const enteredLat = latInputRef.current.value;
-    const enteredLong = longInputRef.current.value;
+    const enteredAddr = addrInputRef.current.value;
+    const enteredCity = cityInputRef.current.value;
+    const enteredCountry = countryInputRef.current.value;
+    const enteredState = stateInputRef.current.value;
 
     console.log("submitted");
 
     const addPartyData = {
       Party_name: enteredTitle,
-      Host_id: parseInt(enteredHost),
-      Address_id: parseInt(enteredAddress),
+      Host_id: 2,
       Tags: enteredTag,
       Description: enteredDesc,
       Start_time: enteredStart,
       End_time: enteredEnd,
-      Image_id: enteredImage,
-      Attendee_count: enteredCount,
-      Latitude: parseFloat(enteredLat),
-      Longitude: parseFloat(enteredLong),
+      Lane_apt: enteredAddr,
+      City: enteredCity,
+      State: enteredState,
+      Country: enteredCountry,
     };
 
     console.log(addPartyData);
@@ -62,7 +57,7 @@ function AddForm(props) {
         <div className="shadow overflow-hidden sm:rounded-md">
           <div className="px-4 py-5 bg-white sm:p-6">
             <div className="grid grid-cols-6 gap-6">
-              <div className="col-span-6 sm:col-span-3">
+              <div className="col-span-6">
                 <label
                   htmlFor="party_title"
                   className="block text-sm font-medium text-gray-700"
@@ -76,41 +71,9 @@ function AddForm(props) {
                   ref={titleInputRef}
                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
-              </div>
+              </div> 
 
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="host_id"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Host Id
-                </label>
-                <input
-                  type="text"
-                  name="Host_id"
-                  id="Host_id"
-                  ref={hostInputRef}
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                />
-              </div>
-
-              <div className="col-span-6 sm:col-span-4">
-                <label
-                  htmlFor="address_id"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Address Id
-                </label>
-                <input
-                  type="text"
-                  name="Address_id"
-                  id="Address_id"
-                  ref={addressInputRef}
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                />
-              </div>
-
-              <div className="col-span-6 sm:col-span-3">
+              <div className="col-span-6">
                 <label
                   htmlFor="tags"
                   className="block text-sm font-medium text-gray-700"
@@ -151,6 +114,7 @@ function AddForm(props) {
                 </label>
                 <input
                   type="text"
+                  placeholder="Ex: Jan 2, 2006 3:04 pm"
                   name="Start_time"
                   id="Start_time"
                   ref={startInputRef}
@@ -169,71 +133,71 @@ function AddForm(props) {
                   type="text"
                   name="End_time"
                   id="End_time"
+                  placeholder="Ex: Jan 3, 2006 3:04 pm"
                   ref={endInputRef}
                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 
-              <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+              <div className="col-span-6">
                 <label
-                  htmlFor="image"
+                  htmlFor="Lane_apt"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Image
+                  Address Line 1
                 </label>
                 <input
                   type="text"
-                  name="Image_id"
-                  id="Image_id"
-                  ref={imageInputRef}
+                  name="Lane_apt"
+                  id="Lane_apt"
+                  ref={addrInputRef}
                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 
               <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label
-                  htmlFor="attendee_count"
+                  htmlFor="City"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Attendee Count
+                  City
                 </label>
                 <input
                   type="text"
-                  name="Attendee_count"
-                  id="Attendee_count"
-                  ref={countInputRef}
+                  name="City"
+                  id="City"
+                  ref={cityInputRef}
                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
 
               <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label
-                  htmlFor="latitude"
+                  htmlFor="State"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Latitude
+                  State
                 </label>
                 <input
                   type="text"
-                  name="Latitude"
-                  id="Latitude"
-                  ref={latInputRef}
+                  name="State"
+                  id="State"
+                  ref={stateInputRef}
                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
-
               <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label
-                  htmlFor="longitude"
+                  htmlFor="Country"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Longitude
+                  Country
                 </label>
                 <input
                   type="text"
-                  name="Longitude"
-                  id="Longitude"
-                  ref={longInputRef}
+                  name="Country"
+                  id="Country"
+                  ref={countryInputRef}
                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
