@@ -1,10 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-
+import { values, size } from "lodash";
+import { toast } from "react-toastify";
 import { Form, Button } from "react-bootstrap";
-import { useRef } from "react";
+import { isEmailValid } from "../Utils/validations";
+import { signUpApi } from "../api/auth";
+
+function initialFormValue() {
+  return {
+    name: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    state: "",
+    city: "",
+    address: "",
+  };
+}
 
 function SignUpForm() {
+  const [formData, setFormData] = useState(initialFormValue());
+  const [signUpLoading, setSignUpLoading] = useState(false);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(formData);
+
+    let validCount = 0;
+    values(formData).some((value) => {
+      value && validCount++;
+      return null;
+    });
+
+    if (validCount !== size(formData)) {
+      toast.warning("Complete All form details");
+    } else {
+      if (!isEmailValid(formData.email)) {
+        toast.warning("Email invalid");
+      } else if (formData.password !== formData.confirmPassword) {
+        toast.warning("Password did not match");
+      } else if (size(formData.password) < 6) {
+        toast.warning("Password characters less than 6");
+      } else {
+        setSignUpLoading(true);
+        signUpApi(formData)
+          .then((response) => {
+            if (response.code) {
+              toast.warning(response.message);
+            } else {
+              toast.success("Successful Created");
+              setShowModal(false);
+              setFormData(initialFormValue());
+            }
+          })
+          .catch(() => {
+            toast.error("Server error, please try again later!");
+          })
+          .finally(() => {
+            setSignUpLoading(false);
+          });
+      }
+    }
+  };
+
   function submitHandler(event) {
     event.preventDefault();
     console.log("submitted");
@@ -23,16 +83,16 @@ function SignUpForm() {
       >
         <div class="w-full h-full">
           <h1 class="text-xl md:text-2xl font-bold leading-tight mt-4">
-            Register Today
+            Register
           </h1>
 
-          <form class="mt-6" onSubmit={submitHandler} onChange={onChange}>
+          <form class="mt-6" onSubmit={onSubmit} onChange={onChange}>
             <div className="flex flex-wrap -mx-3 mb-2">
               <div class="mt-2 w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label class="block text-gray-700">First Name</label>
                 <input
                   type="text"
-                  name=""
+                  name="name"
                   id=""
                   placeholder="Enter First Name"
                   minlength="6"
@@ -46,7 +106,7 @@ function SignUpForm() {
                 <label class="block text-gray-700">Last Name</label>
                 <input
                   type="text"
-                  name=""
+                  name="lastname"
                   id=""
                   placeholder="Enter Last Name"
                   minlength="3"
@@ -60,7 +120,7 @@ function SignUpForm() {
               <label class="block text-gray-700">Email Address</label>
               <input
                 type="email"
-                name=""
+                name="email"
                 id=""
                 placeholder="Enter Email Address"
                 class="w-full px-4 py-1 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none"
@@ -74,7 +134,21 @@ function SignUpForm() {
               <label class="block text-gray-700">Password</label>
               <input
                 type="password"
-                name=""
+                name="password"
+                id=""
+                placeholder="Enter Password"
+                minlength="6"
+                class="w-full px-4 py-1 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500
+                  focus:bg-white focus:outline-none"
+                required
+              ></input>
+            </div>
+
+            <div class="mt-2">
+              <label class="block text-gray-700"> Confirm Password</label>
+              <input
+                type="password"
+                name="confirmPassword"
                 id=""
                 placeholder="Enter Password"
                 minlength="6"
@@ -109,7 +183,7 @@ function SignUpForm() {
                 <label class="block text-gray-700">Address </label>
                 <input
                   type="text"
-                  name=""
+                  name="address"
                   id=""
                   placeholder="Enter Full Address"
                   minlength="6"
@@ -124,7 +198,7 @@ function SignUpForm() {
                   <label class="block text-gray-700">City </label>
                   <input
                     type="text"
-                    name=""
+                    name="city"
                     id=""
                     placeholder="Enter City"
                     minlength="6"
@@ -138,7 +212,7 @@ function SignUpForm() {
                   <label class="block text-gray-700">State </label>
                   <input
                     type="text"
-                    name=""
+                    name="state"
                     id=""
                     placeholder="Enter State"
                     minlength="6"
@@ -148,7 +222,7 @@ function SignUpForm() {
                   ></input>
                 </div>
 
-                <div class="mt-2 w-full md:w-1/3 px-3">
+                {/* <div class="mt-2 w-full md:w-1/3 px-3">
                   <label class="block text-gray-700">Country</label>
                   <input
                     type="text"
@@ -160,7 +234,7 @@ function SignUpForm() {
                   focus:bg-white focus:outline-none"
                     required
                   ></input>
-                </div>
+                </div> */}
               </div>
             </div>
 
