@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
@@ -14,7 +19,6 @@ import { ToastContainer } from "react-toastify";
 import { AuthContext } from "../src/Utils/contexts";
 import { isUserLogedApi } from "./api/auth";
 
-
 function App(props) {
   const history = useNavigate();
 
@@ -26,7 +30,7 @@ function App(props) {
     // setUser(isUserLogedApi());
     // setRefreshCheckLogin(false);
     // setLoadUser(true);
-    if(refreshCheckLogin == true){
+    if (refreshCheckLogin == true) {
       history("/");
     }
   }, [refreshCheckLogin]);
@@ -36,21 +40,19 @@ function App(props) {
 
   return (
     <EventsProvider>
-        <Navbar />
-        <Routes>
-        
-          <Route path="/" exact element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/partylist" element={<PartyList />} />
-          <Route path="/contact-us" element={<Contact />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route
-            path="/sign-in"
-            element={<SignIn setRefreshCheckLogin={setRefreshCheckLogin} />}
-          />
-          <Route path="/partyDetail/:partyId" element={<PartyDetail />} />
-        </Routes>
-        
+      <Navbar />
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/partylist" element={<PartyList />} />
+        <Route path="/contact-us" element={<Contact />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route
+          path="/sign-in"
+          element={<SignIn setRefreshCheckLogin={setRefreshCheckLogin} />}
+        />
+        <Route path="/partyDetail/:partyId" element={<PartyDetail />} />
+      </Routes>
     </EventsProvider>
   );
 }
