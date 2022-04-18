@@ -2,8 +2,7 @@ package models
 
 import (
 	"time"
-
-	jwt "github.com/dgrijalva/jwt-go"
+	//jwt "github.com/dgrijalva/jwt-go"
 )
 
 type Addresses struct {
@@ -14,6 +13,20 @@ type Addresses struct {
 	Country    string  `json:"Country"`
 	Latitude   float64 `json:"Latitude"`
 	Longitude  float64 `json:"Longitude"`
+}
+
+type UserAdd struct {
+	First_name string `json:"First_name"`
+	Last_name  string `json:"Last_name"`
+	Gender     string `json:"Gender"`
+	Bio        string `json:"Bio"`
+	Email      string `json:"email"`
+	Password   string `json:"password,omitempty"`
+
+	Lane_apt string `json:"Lane_apt"`
+	City     string `json:"City"`
+	State    string `json:"State"`
+	Country  string `json:"Country"`
 }
 
 type Users struct {
@@ -28,7 +41,6 @@ type Users struct {
 }
 
 type PartyTemp struct {
-	// Party_id   int    `gorm:"primary_key;type:int;" json:"Party_id"`
 	Party_name string `json:"Party_name"`
 
 	Host_id int `json:"Host_id"`
@@ -38,13 +50,11 @@ type PartyTemp struct {
 	State    string `json:"State"`
 	Country  string `json:"Country"`
 
-	Start_time time.Time `json:"Start_time"`
-	End_time   time.Time `json:"End_time"`
+	Start_time string `json:"Start_time"`
+	End_time   string `json:"End_time"`
 
 	Tags        string `json:"Tags"`
 	Description string `json:"Description"`
-
-	Image_id string `json:"image_id"`
 }
 
 type Parties struct {
@@ -100,8 +110,6 @@ type Party struct {
 	Distance float64 `json:"distance_miles"`
 
 	Image_id string `json:"image_id"`
-
-	// Tags []Tag `json:"tags"`
 }
 
 type Location struct {
@@ -157,5 +165,5 @@ type AnswerLogin struct {
 type Claim struct {
 	Email string `json:"email"`
 	ID    int    `json:"_id,omitempty"`
-	jwt.StandardClaims
+	//jwt.StandardClaims
 }

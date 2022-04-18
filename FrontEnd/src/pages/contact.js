@@ -83,8 +83,8 @@ const Contact = () => {
               ></textarea>
             </div>
           </div>
-          <div className="md:flex md:items-center">
-            <div className="items-center" role="dialog">
+          <div className=" md:items-center text-center">
+            <div className="items-center text-center" role="dialog"> 
               <button
                 className="
                 w-full block bg-purple-500 hover:bg-purple-400 focus:bg-purple-400 text-white font-semibold rounded-lg

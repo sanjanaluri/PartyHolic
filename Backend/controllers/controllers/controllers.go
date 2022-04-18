@@ -7,6 +7,7 @@ import (
 	"geo/geo"
 	"models/models"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
@@ -54,7 +55,8 @@ func AddAddress(c *gin.Context) {
 // register
 func AddUser(c *gin.Context) {
 
-	var input models.Users
+	var input models.UserAdd
+
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -62,10 +64,33 @@ func AddUser(c *gin.Context) {
 
 	var password, _ = EncryptPassword(input.Password)
 
-	user := models.Users{User_id: input.User_id,
+	var latLon = geo.GeoAddress(input.Lane_apt + " " + input.City + " " + input.State + " " + input.Country)
+
+	type AddressTemp struct {
+		Address_id uint64
+	}
+	var ip AddressTemp
+
+	database.DB.Table("addresses").Select("address_id").Where("latitude = ? and longitude = ?", latLon[0], latLon[1]).Find(&ip)
+
+	if ip.Address_id == 0 {
+		address := models.Addresses{Lane_apt: input.Lane_apt,
+			City:      input.City,
+			State:     input.State,
+			Country:   input.Country,
+			Latitude:  latLon[0],
+			Longitude: latLon[1],
+		}
+
+		database.DB.Create(&address)
+		database.DB.Table("addresses").Select("address_id").Where("latitude = ? and longitude = ?", latLon[0], latLon[1]).Find(&ip)
+
+	}
+
+	user := models.Users{
 		First_name: input.First_name,
 		Last_name:  input.Last_name,
-		Address_id: input.Address_id,
+		Address_id: ip.Address_id,
 		Gender:     input.Gender,
 		Bio:        input.Bio,
 		Email:      input.Email,
@@ -107,23 +132,29 @@ func AddParty(c *gin.Context) {
 		database.DB.Table("addresses").Select("address_id").Where("latitude = ? and longitude = ?", latLon[0], latLon[1]).Find(&ip)
 
 	}
+
+	const layout = "Jan 2, 2006 3:04 pm"
+	var start, _ = time.Parse(layout, input.Start_time)
+	var end, _ = time.Parse(layout, input.End_time)
+	fmt.Printf(latLon[0] + "")
+	fmt.Print(latLon[1] )
 	party := &models.Parties{
 
 		Party_name: input.Party_name,
 		Host_id:    input.Host_id,
 		Address_id: ip.Address_id,
 
-		Start_time: input.Start_time,
-		End_time:   input.End_time,
+		Start_time: start,
+		End_time:   end,
 
 		Tags:        input.Tags,
 		Description: input.Description,
 
-		Image_id:       input.Image_id,
+		Image_id:       "127045.jpg",
 		Attendee_count: 0,
 
 		Latitude:  latLon[0],
-		Longitude: latLon[1],
+		Longitude: latLon[0],
 	}
 
 	database.DB.Create(&party)

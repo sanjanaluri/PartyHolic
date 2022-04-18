@@ -15,6 +15,7 @@ import SignIn from "./pages/signin";
 import PartyList from "./pages/PartyList";
 import { EventsProvider } from "./context/EventsContext";
 import PartyDetail from "./pages/PartyDetail";
+import AddForm from "./components/AddForm";
 import { ToastContainer } from "react-toastify";
 import { AuthContext } from "../src/Utils/contexts";
 import { isUserLogedApi } from "./api/auth";
@@ -40,19 +41,22 @@ function App(props) {
 
   return (
     <EventsProvider>
+
       <Navbar />
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/partylist" element={<PartyList />} />
-        <Route path="/contact-us" element={<Contact />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route
-          path="/sign-in"
-          element={<SignIn setRefreshCheckLogin={setRefreshCheckLogin} />}
-        />
-        <Route path="/partyDetail/:partyId" element={<PartyDetail />} />
-      </Routes>
+     <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/partylist" element={<PartyList />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/add-event" element={<AddForm />} />
+          <Route
+            path="/sign-in"
+            element={<SignIn setRefreshCheckLogin={setRefreshCheckLogin} />}
+          />
+          <Route path="/partyDetail/:partyId" element={<PartyDetail />} />
+        </Routes>
+        <Navbar />
     </EventsProvider>
   );
 }

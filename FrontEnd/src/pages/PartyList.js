@@ -4,6 +4,7 @@ import ListingParties from "../components/ListingParties";
 import { Modal, Button } from "react-bootstrap";
 import AddForm from "../components/AddForm";
 import props from 'prop-types';
+import moment from "moment";
 
 function PartyList() {
   const [show, setShow] = useState(false);
@@ -26,11 +27,11 @@ function PartyList() {
 
   return (
     <>
-      <div className="category container mx-auto px-auto mt-0">
-        <div className="pt-20 mb-3.5 mt-0">
+      <div className="category container mx-auto px-auto mt-0 text-center">
+        <div className=" text-m w-1/2 mx-auto mb-3.5 mt-0 ">
           <button
             onClick={handleShow}
-            class="ml-8 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+            class="ml-8 bg-purple-500 hover:bg-purple-400  font-semibold py-2 px-4 border border-gray-400 rounded shadow text-white  font-semibold"
           >
             Add Event
           </button>

@@ -120,7 +120,10 @@ const SignInForm = (props) => {
           <hr className="my-6 border-gray-300 w-full"></hr>
           <p className="mt-8">
             Need an account?{" "}
-            <a className="text-purple-500 hover:text-purple-700 font-semibold">
+            <a
+              href="#"
+              class="text-purple-500 hover:text-purple-700 font-semibold hover:bg-gray-100"
+            >
               <Link to="/sign-up"> Create an account </Link>
             </a>
           </p>
