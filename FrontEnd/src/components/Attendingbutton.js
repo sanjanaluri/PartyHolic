@@ -6,7 +6,7 @@ function AttendingButton() {
   return (
     <>
       <div>
-        <button className=" bg-blue-500 hover:bg-blue-700 text-white ">
+        <button className=" bg-purple-500 hover:bg-purple-400 hover:text-purple-700 font-semibold text-white ">
           Attend it
         </button>
         
