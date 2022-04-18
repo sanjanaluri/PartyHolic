@@ -136,8 +136,8 @@ func AddParty(c *gin.Context) {
 	const layout = "Jan 2, 2006 3:04 pm"
 	var start, _ = time.Parse(layout, input.Start_time)
 	var end, _ = time.Parse(layout, input.End_time)
-	fmt.Printf(latLon[0] + "")
-	fmt.Print(latLon[1] )
+	//fmt.Printf(latLon[0] + "")
+	//fmt.Print(latLon[1] )
 	party := &models.Parties{
 
 		Party_name: input.Party_name,
