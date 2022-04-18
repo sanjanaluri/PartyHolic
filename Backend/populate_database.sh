@@ -5,10 +5,10 @@
 mysql -u root --password='' << EOF
 USE partyholic
 
-insert into users values(1,"Himakireeti", "Konda",1,"M","Cool Dude");
-insert into users values(2,"Sanjana", "Aluri",2,"Gender Fluid","Not worthy");
-insert into users values(3,"Medha", "Naik",3,"Transgender","unwanted");
-insert into users values(4,"Santosh", "Maturi",4,"Undefined","waste of time");
+insert into users values(1,"Himakireeti", "Konda",1,"Male","Cool Dude","hk@gmail.com","1234");
+insert into users values(2,"Sanjana", "Aluri",2,"Female","Classy and sassy","sanj@gmail.com","1234");
+insert into users values(3,"Medha", "Naik",3,"Female","unwanted","medha@gmail.com","1234");
+insert into users values(4,"Santosh", "Maturi",4,"Male","waste of time","santosh@gmail.com","1234");
 
 insert into addresses values(1,"309 sw 16th ave apt 219","Gainesville","Florida","USA",29.63597,-82.3291);
 insert into addresses values(2,"350 Elan Village Ln","SanJose","California","USA",29.63590,-82.3290);
