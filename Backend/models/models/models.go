@@ -51,13 +51,11 @@ type PartyTemp struct {
 	State    string `json:"State"`
 	Country  string `json:"Country"`
 
-	Start_time time.Time `json:"Start_time"`
-	End_time   time.Time `json:"End_time"`
+	Start_time string `json:"Start_time"`
+	End_time   string `json:"End_time"`
 
 	Tags        string `json:"Tags"`
 	Description string `json:"Description"`
-
-	Image_id string `json:"image_id"`
 }
 
 type Parties struct {
