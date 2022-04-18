@@ -114,7 +114,7 @@ const SignInForm = (props) => {
               class="w-full block bg-purple-500 hover:bg-purple-400 focus:bg-purple-400 text-white font-semibold rounded-lg
                 px-4 py-3 mt-6"
             >
-              {!signInLoading ? "Login to Gator News" : "check"}
+              {!signInLoading ? "Login" : "check"}
             </button>
           </form>
           <hr class="my-6 border-gray-300 w-full"></hr>
@@ -122,7 +122,7 @@ const SignInForm = (props) => {
             Need an account?{" "}
             <a
               href="#"
-              class="text-purple-500 hover:text-purple-700 font-semibold"
+              class="text-purple-500 hover:text-purple-700 font-semibold hover:bg-gray-100"
             >
               <Link to="/sign-up"> Create an account </Link>
             </a>

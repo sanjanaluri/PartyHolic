@@ -2,8 +2,7 @@ package models
 
 import (
 	"time"
-
-	jwt "github.com/dgrijalva/jwt-go"
+	//jwt "github.com/dgrijalva/jwt-go"
 )
 
 type Addresses struct {
@@ -166,5 +165,5 @@ type AnswerLogin struct {
 type Claim struct {
 	Email string `json:"email"`
 	ID    int    `json:"_id,omitempty"`
-	jwt.StandardClaims
+	//jwt.StandardClaims
 }
