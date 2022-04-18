@@ -54,7 +54,8 @@ func AddAddress(c *gin.Context) {
 // register
 func AddUser(c *gin.Context) {
 
-	var input models.Users
+	var input models.UserAdd
+
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -62,10 +63,33 @@ func AddUser(c *gin.Context) {
 
 	var password, _ = EncryptPassword(input.Password)
 
-	user := models.Users{User_id: input.User_id,
+	var latLon = geo.GeoAddress(input.Lane_apt + " " + input.City + " " + input.State + " " + input.Country)
+
+	type AddressTemp struct {
+		Address_id uint64
+	}
+	var ip AddressTemp
+
+	database.DB.Table("addresses").Select("address_id").Where("latitude = ? and longitude = ?", latLon[0], latLon[1]).Find(&ip)
+
+	if ip.Address_id == 0 {
+		address := models.Addresses{Lane_apt: input.Lane_apt,
+			City:      input.City,
+			State:     input.State,
+			Country:   input.Country,
+			Latitude:  latLon[0],
+			Longitude: latLon[1],
+		}
+
+		database.DB.Create(&address)
+		database.DB.Table("addresses").Select("address_id").Where("latitude = ? and longitude = ?", latLon[0], latLon[1]).Find(&ip)
+
+	}
+
+	user := models.Users{
 		First_name: input.First_name,
 		Last_name:  input.Last_name,
-		Address_id: input.Address_id,
+		Address_id: ip.Address_id,
 		Gender:     input.Gender,
 		Bio:        input.Bio,
 		Email:      input.Email,

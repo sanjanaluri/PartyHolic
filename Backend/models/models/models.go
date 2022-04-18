@@ -16,6 +16,20 @@ type Addresses struct {
 	Longitude  float64 `json:"Longitude"`
 }
 
+type UserAdd struct {
+	First_name string `json:"First_name"`
+	Last_name  string `json:"Last_name"`
+	Gender     string `json:"Gender"`
+	Bio        string `json:"Bio"`
+	Email      string `json:"email"`
+	Password   string `json:"password,omitempty"`
+
+	Lane_apt string `json:"Lane_apt"`
+	City     string `json:"City"`
+	State    string `json:"State"`
+	Country  string `json:"Country"`
+}
+
 type Users struct {
 	User_id    int    `gorm:"primary_key;type:int;" json:"User_id"`
 	First_name string `json:"First_name"`
@@ -28,7 +42,6 @@ type Users struct {
 }
 
 type PartyTemp struct {
-	// Party_id   int    `gorm:"primary_key;type:int;" json:"Party_id"`
 	Party_name string `json:"Party_name"`
 
 	Host_id int `json:"Host_id"`
@@ -100,8 +113,6 @@ type Party struct {
 	Distance float64 `json:"distance_miles"`
 
 	Image_id string `json:"image_id"`
-
-	// Tags []Tag `json:"tags"`
 }
 
 type Location struct {
