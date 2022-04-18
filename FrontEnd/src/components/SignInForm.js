@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { values, size } from "lodash";
 import { toast } from "react-toastify";
 import { isEmailValid } from "../Utils/validations";
@@ -7,11 +7,14 @@ import { API_HOST, TOKEN } from "../Utils/constant";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { useRef } from "react";
+import { UserContext} from "../App"
 
 const SignInForm = (props) => {
   const { setRefreshCheckLogin } = props;
   const [formData, setFormData] = useState(initialFormValue());
   const [signInLoading, setSignInLoading] = useState(false);
+
+  const {state,dispatch} = useContext(UserContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +54,10 @@ const SignInForm = (props) => {
           .finally(() => {
             setSignInLoading(false);
           });
+        
+          dispatch({type :"USER" , payload :true});
         console.log("Login Successful");
+        
       }
     }
     console.log(validationCount);
