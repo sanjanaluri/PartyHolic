@@ -15,6 +15,7 @@ import localization from "moment/locale/es"
 
 function Map(partyData) {
   const [selectedPark, setSelectedPark] = useState(false);
+  
   useEffect(() => {
     const listener = (e) => {
       if (e.key === "Escape") {
@@ -192,7 +193,7 @@ function PartyDetail(props) {
 
                 <div className="bg-gray-50 px-30 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
                   
-                  <AttendingButton/>
+                  <AttendingButton params={{partyId: partyData.party_id}}/>
                   
                 </div>
                 
