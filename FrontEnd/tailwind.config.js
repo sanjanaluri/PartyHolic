@@ -12,6 +12,7 @@ module.exports = {
     "./src/pages/contact.js",
     "./src/pages/signin.js",
     "./src/components/SignInForm.js",
+    "./src/pages/about.js",
   ],
   theme: {
     extend: {
