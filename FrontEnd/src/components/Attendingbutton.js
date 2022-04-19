@@ -8,8 +8,6 @@ function AttendingButton() {
   const pId=parseInt(partyId);
   function attendPartyHandler(event){
     event.preventDefault();
-    console.log("hi");
-    console.log(partyId);
     const attendData = {
       user_id:3,
       party_id : pId
