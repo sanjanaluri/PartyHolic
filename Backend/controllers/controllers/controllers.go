@@ -154,7 +154,7 @@ func AddParty(c *gin.Context) {
 		Attendee_count: 0,
 
 		Latitude:  latLon[0],
-		Longitude: latLon[0],
+		Longitude: latLon[1],
 	}
 
 	database.DB.Create(&party)

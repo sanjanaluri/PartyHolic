@@ -1,5 +1,5 @@
 #!/bin/bash
-mysql -u root --password='' << EOF
+mysql -u root --password='password' << EOF
 USE partyholic
 
 drop table users;
