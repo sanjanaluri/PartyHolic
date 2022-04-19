@@ -167,3 +167,8 @@ type Claim struct {
 	ID    int    `json:"_id,omitempty"`
 	//jwt.StandardClaims
 }
+
+type EmailPass struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
+}

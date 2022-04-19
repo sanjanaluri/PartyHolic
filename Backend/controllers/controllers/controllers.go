@@ -118,7 +118,6 @@ func AddParty(c *gin.Context) {
 	var ip AddressTemp
 
 	database.DB.Table("addresses").Select("address_id").Where("latitude = ? and longitude = ?", latLon[0], latLon[1]).Find(&ip)
-
 	if ip.Address_id == 0 {
 		address := models.Addresses{Lane_apt: input.Lane_apt,
 			City:      input.City,
@@ -234,6 +233,25 @@ func CancelAttendance(c *gin.Context) {
 	defer sql_connection.Close()
 	c.JSON(http.StatusOK, gin.H{"data": attendee})
 
+}
+
+func UserLogin(c *gin.Context) {
+
+	var input models.EmailPass
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	fmt.Println(input)
+
+	user, valid := TryLogin(input.Email, input.Password)
+
+	if valid != false {
+		c.JSON(http.StatusOK, gin.H{"user": "", "Status": "Invalid Information"})
+	}
+
+	c.JSON(http.StatusOK, gin.H{"user": user, "Status": "Success Login"})
 }
 
 func EncryptPassword(pass string) (string, error) {

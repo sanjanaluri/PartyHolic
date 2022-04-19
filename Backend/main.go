@@ -8,6 +8,7 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
+	// "github.com/himakireeti/PartyHolic/Backend/controllers/controllers"
 )
 
 func main() {
@@ -26,6 +27,8 @@ func main() {
 	r.POST("/api/addAddress", controllers.AddAddress)
 
 	r.POST("/api/newUser", controllers.AddUser)
+
+	r.POST("/api/login", controllers.UserLogin)
 
 	r.POST("/api/newParty", controllers.AddParty)
 	r.POST("/api/parties", controllers.GetParties)
