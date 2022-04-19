@@ -1,0 +1,792 @@
+{
+	"info": {
+		"_postman_id": "be6d8d7d-115a-4217-9523-2284bc4d261c",
+		"name": "PartyHolic",
+		"description": "Party and User APIs for Partyholic backend.\n\nCode Repo: [https://github.com/sanjanaluri/PartyHolic](https://github.com/sanjanaluri/PartyHolic)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Party APIs",
+			"item": [
+				{
+					"name": "Host A New Party",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "hk@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Party_name\": \"Spring 2022 Graduation Party\",\n    \"Host_id\": 2,\n    \"Tags\": \"Alcohol: No, Age Over18: No\",\n    \"Description\": \"everyone is welcome!\",\n    \"Start_time\": \"Apr 2, 2022 7:04 pm\",\n    \"End_time\": \"Apr 3, 2022 3:04 am\",\n    \"Lane_apt\": \"1505 4TH STREET\",\n    \"City\": \"san francisco\",\n    \"State\": \"california\",\n    \"Country\": \"United States\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/newParty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"newParty"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Host A New Party",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Party_name\": \"Spring 2022 Graduation Party\",\n    \"Host_id\": 2,\n    \"Tags\": \"Alcohol: No, Age Over18: No\",\n    \"Description\": \"everyone is welcome!\",\n    \"Start_time\": \"Apr 2, 2022 7:04 pm\",\n    \"End_time\": \"Apr 3, 2022 3:04 am\",\n    \"Lane_apt\": \"1505 4TH STREET\",\n    \"City\": \"san francisco\",\n    \"State\": \"california\",\n    \"Country\": \"United States\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/newParty",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"newParty"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 18:03:07 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "315"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"Party_id\": 16,\n        \"Party_name\": \"Spring 2022 Graduation Party\",\n        \"Host_id\": 2,\n        \"Address_id\": 9,\n        \"Start_time\": \"2022-04-02T19:04:00Z\",\n        \"End_time\": \"2022-04-03T03:04:00Z\",\n        \"Tags\": \"Alcohol: No, Age Over18: No\",\n        \"Description\": \"everyone is welcome!\",\n        \"image_id\": \"127045.jpg\",\n        \"interested_people\": 0,\n        \"Longitude\": 0,\n        \"Latitude\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "View All Parties In User's Area",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "hk@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"1\",\n    \"location\": {\n        \"latitude\": -82.3291,\n        \"longitude\": 29.63597\n    },\n    \"radius_meters\": 50\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/parties",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"parties"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "View All Parties In User's Area",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": \"1\",\n    \"location\": {\n        \"latitude\": -82.3291,\n        \"longitude\": 29.63597\n    },\n    \"radius_meters\": 50\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/parties",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"parties"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 18:14:34 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"parties\": [\n        {\n            \"party_id\": 5,\n            \"title\": \"medha\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 7786.08,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 6,\n            \"title\": \"another party\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 7788.66,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 7,\n            \"title\": \"hi\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 8365.45,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 8,\n            \"title\": \"hi\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 8365.45,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 9,\n            \"title\": \"Spring 2022 Graduation Party\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 5693.34,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 10,\n            \"title\": \"Spring 2022 Graduation Party\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 5693.34,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 11,\n            \"title\": \"Spring 2022 Graduation Party\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 5693.34,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 12,\n            \"title\": \"Spring 2022 Graduation Party\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 5693.34,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 13,\n            \"title\": \"Spring 2022 Graduation Party\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 5693.34,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 14,\n            \"title\": \"Spring 2022 Graduation Party\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 5693.34,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 15,\n            \"title\": \"Spring 2022 Graduation Party\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 5693.34,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 16,\n            \"title\": \"Spring 2022 Graduation Party\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 0,\n            \"distance_miles\": 5693.34,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 1,\n            \"title\": \"Classic Party\",\n            \"host_name\": \"Himakireeti Konda\",\n            \"interested_people\": 100,\n            \"distance_miles\": 7787.21,\n            \"image_id\": \"127045.jpg\"\n        },\n        {\n            \"party_id\": 2,\n            \"title\": \"Daaru Party\",\n            \"host_name\": \"Sanjana Aluri\",\n            \"interested_people\": 100,\n            \"distance_miles\": 7787.21,\n            \"image_id\": \"Image5.jpg\"\n        },\n        {\n            \"party_id\": 3,\n            \"title\": \"Chillar party\",\n            \"host_name\": \"Medha Naik\",\n            \"interested_people\": 100,\n            \"distance_miles\": 7787.21,\n            \"image_id\": \"Image6.jpg\"\n        },\n        {\n            \"party_id\": 4,\n            \"title\": \"another party\",\n            \"host_name\": \"Santosh Maturi\",\n            \"interested_people\": 100,\n            \"distance_miles\": 7787.21,\n            \"image_id\": \"Image4.jpg\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Given Party's Details",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "hk@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/getParty/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"getParty",
+								"15"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Given Party's Details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/getParty/15",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"getParty",
+										"15"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 18:07:49 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "437"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"Party_id\": 15,\n        \"Party_name\": \"Spring 2022 Graduation Party\",\n        \"First_name\": \"Sanjana\",\n        \"Last_name\": \"Aluri\",\n        \"Lane_apt\": \"1505 4TH STREET\",\n        \"City\": \"san francisco\",\n        \"State\": \"california\",\n        \"Country\": \"United States\",\n        \"Longitude\": 0,\n        \"Latitude\": 0,\n        \"Start_time\": \"2022-04-02T15:04:00-04:00\",\n        \"End_time\": \"2022-04-02T23:04:00-04:00\",\n        \"Tags\": \"Alcohol: No, Age Over18: No\",\n        \"Description\": \"everyone is welcome!\",\n        \"image_id\": \"127045.jpg\",\n        \"interested_people\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Cancel Hosted Party",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "hk@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"party_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cancelParty/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cancelParty",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cancel Hosted Party",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/cancelParty/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"cancelParty",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 18:24:25 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Show Interest In Attending A Party",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "hk@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/attendParty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"attendParty"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show Interest In Attending A Party",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"party_id\": 1\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/attendParty",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"attendParty"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 18:26:31 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Remove Interest In Attending A Party",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "hk@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"party_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cancelAttendance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cancelAttendance"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Remove Interest In Attending A Party",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"party_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/cancelAttendance",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"cancelAttendance"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 18:27:39 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user_id\": 1,\n        \"party_id\": 1\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "to run server locally and test APIs,\n\n1.  go to Backend folder in Partyholic Repo, and run **go run main.go**\n2.  server will be hosted on localhost port 8080"
+		},
+		{
+			"name": "User APIs",
+			"item": [
+				{
+					"name": "Create New User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "hk@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"First_name\": \"HK\",\n\"Last_name\": \"test\",\n\"Gender\": \"M\",\n\"Bio\": \"\",\n\"Email\": \"hk@email.com\",\n\"Password\": \"pass\",\n\"Lane_apt\": \"309 sw 16th ave apt 219\",\n\"City\" :    \"Gainesville\",\n\"State\" :   \"Florida\",\n\"Country\":  \"USA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/newUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"newUser"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create New User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"First_name\": \"HK\",\n\"Last_name\": \"test\",\n\"Gender\": \"M\",\n\"Bio\": \"\",\n\"Email\": \"hk@email.com\",\n\"Password\": \"pass\",\n\"Lane_apt\": \"309 sw 16th ave apt 219\",\n\"City\" :    \"Gainesville\",\n\"State\" :   \"Florida\",\n\"Country\":  \"USA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/newUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"newUser"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 18:50:36 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "198"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message2\": {\n        \"User_id\": 5,\n        \"First_name\": \"HK\",\n        \"Last_name\": \"test\",\n        \"Address_id\": 10,\n        \"Gender\": \"M\",\n        \"Bio\": \"\",\n        \"email\": \"hk@email.com\",\n        \"password\": \"$2a$08$BM.bjoLGV/s3qqUQF.HaZ.046ME0vDv8uLVNASSMJ1e7EhpkTQtA.\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Log In",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "hk@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"hk@gmail.com\",\n    \"password\": \"pass\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Log In",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"hk@gmail.com\",\n    \"password\": \"pass\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 19:05:57 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"user_id\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Log Out",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "hk@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"hk@gmail.com\",\n    \"password\": \"pass\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Log Out",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"hk@gmail.com\",\n    \"password\": \"pass\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 19:06:00 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"user_id\": 1\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
