@@ -171,7 +171,7 @@ type Claim struct {
 	jwt.StandardClaims
 }
 
-type Email_Pass struct {
-	email    string `json:"email"`
-	password string `json:"password"`
+type EmailPass struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
 }

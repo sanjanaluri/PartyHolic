@@ -231,17 +231,21 @@ func CancelAttendance(c *gin.Context) {
 
 func UserLogin(c *gin.Context) {
 
-	var loginInfo models.Email_Pass
-	c.BindJSON(&loginInfo)
-	fmt.Println(loginInfo)
+	var input models.EmailPass
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
-	// user, valid := TryLogin(loginInfo.email_id, loginInfo.password)
+	fmt.Println(input)
 
-	// if valid != false {
-	// c.JSON(http.StatusOK, gin.H{"user": "", "Status": "Invalid Information"})
-	// }
+	user, valid := TryLogin(input.Email, input.Password)
 
-	// c.JSON(http.StatusOK, gin.H{"user": user, "Status": "Invalid Information"})
+	if valid != false {
+		c.JSON(http.StatusOK, gin.H{"user": "", "Status": "Invalid Information"})
+	}
+
+	c.JSON(http.StatusOK, gin.H{"user": user, "Status": "Success Login"})
 }
 
 func EncryptPassword(pass string) (string, error) {
