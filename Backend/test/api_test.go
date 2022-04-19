@@ -5,13 +5,14 @@ import (
 	"database/database"
 	"encoding/json"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"gotest.tools/assert"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
 	"strings"
 	"testing"
+
+	"github.com/gin-gonic/gin"
+	"gotest.tools/assert"
 )
 
 // run - bash clear_database.sh
@@ -218,6 +219,62 @@ func TestAttendPartyAPI(t *testing.T) {
 	c.Request.Header.Set("X-Forwarded-For", "127.0.0.1")
 
 	controllers.GetAddresses(c)
+	//assert.Equal(t, 200, w.Code)
+	var response gin.H
+	err := json.Unmarshal(w.Body.Bytes(), &response)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	_, exists := response["message"]
+	fmt.Println("")
+	// Make some assertions on the correctness of the response.
+
+	assert.Equal(t, exists, true)
+}
+
+//
+func CancelAttendanceAPI(t *testing.T) {
+	w := httptest.NewRecorder()
+	c, _ := gin.CreateTestContext(w)
+
+	data := url.Values{}
+	data.Set("party_id", "3")
+	data.Set("user_id", "4")
+	database.Database_setup()
+
+	c.Request, _ = http.NewRequest("POST", "api/addresses", strings.NewReader(data.Encode()))
+	c.Request.Header.Set("X-Forwarded-For", "127.0.0.1")
+
+	controllers.CancelAttendance(c)
+	//assert.Equal(t, 200, w.Code)
+	var response gin.H
+	err := json.Unmarshal(w.Body.Bytes(), &response)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	_, exists := response["message"]
+	fmt.Println("")
+	// Make some assertions on the correctness of the response.
+
+	assert.Equal(t, exists, true)
+}
+
+//Checking User login
+func UserLoginAPI(t *testing.T) {
+	w := httptest.NewRecorder()
+	c, _ := gin.CreateTestContext(w)
+
+	data := url.Values{}
+	data.Set("email", "1")
+	data.Set("password", "1")
+	database.Database_setup()
+
+	c.Request, _ = http.NewRequest("POST", "api/addresses", strings.NewReader(data.Encode()))
+	c.Request.Header.Set("X-Forwarded-For", "127.0.0.1")
+
+	controllers.UserLogin(c)
 	//assert.Equal(t, 200, w.Code)
 	var response gin.H
 	err := json.Unmarshal(w.Body.Bytes(), &response)
