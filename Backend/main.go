@@ -3,7 +3,6 @@ package main
 import (
 	"controllers/controllers"
 	"database/database"
-	"geo/geo"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/contrib/static"
@@ -13,23 +12,17 @@ import (
 
 func main() {
 
-	geo.GeoAddress("Gainesvile")
-
 	database.Database_setup()
 	r := gin.Default()
 	r.Use(cors.Default())
 	r.Static("/images", "./images")
 	r.Use(static.Serve("/", static.LocalFile("../Frontend/build", true)))
-
 	r.GET("/api/addresses", controllers.GetAddresses)
 	r.GET("/api/addresses/:address_id", controllers.GetAddressById)
-
 	r.POST("/api/addAddress", controllers.AddAddress)
-
 	r.POST("/api/newUser", controllers.AddUser)
-
 	r.POST("/api/login", controllers.UserLogin)
-
+	r.POST("/api/logout", controllers.UserLogin)
 	r.POST("/api/newParty", controllers.AddParty)
 	r.POST("/api/parties", controllers.GetParties)
 	r.GET("/api/getParty/:party_id", controllers.GetParty)

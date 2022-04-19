@@ -251,7 +251,7 @@ func UserLogin(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"user": "", "Status": "Invalid Information"})
 	}
 
-	c.JSON(http.StatusOK, gin.H{"user": user, "Status": "Success Login"})
+	c.JSON(http.StatusOK, gin.H{"user_id": user.User_id, "Status": "Success"})
 }
 
 func EncryptPassword(pass string) (string, error) {
