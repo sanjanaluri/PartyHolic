@@ -8,13 +8,15 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./NavarElements";
-import { UserContext} from "../../App"
+import { UserContext} from "../../App";
 
 const Navbar = (props) => {
   const {state,dispatch} = useContext(UserContext);
 
   const RenderMenu = () => {
     if(state){
+
+
       return (
         <>
       <NavLink to="/about" activeStyle>
