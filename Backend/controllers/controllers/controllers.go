@@ -118,7 +118,6 @@ func AddParty(c *gin.Context) {
 	var ip AddressTemp
 
 	database.DB.Table("addresses").Select("address_id").Where("latitude = ? and longitude = ?", latLon[0], latLon[1]).Find(&ip)
-
 	if ip.Address_id == 0 {
 		address := models.Addresses{Lane_apt: input.Lane_apt,
 			City:      input.City,
