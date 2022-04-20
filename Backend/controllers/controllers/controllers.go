@@ -179,7 +179,7 @@ func GetParties(c *gin.Context) {
 func GetParty(c *gin.Context) {
 	var party_details models.FullPartyDetails
 
-	party_columns := "parties.Party_id, parties.party_name, parties.Start_time, parties.end_time, parties.tags, parties.description, parties.image_id, parties.attendee_count as interested_people,"
+	party_columns := "parties.Party_id, parties.party_name, parties.Start_time, parties.end_time, parties.tags, parties.description, parties.image_id, parties.attendee_count,"
 	user_columns := "users.first_name, users.last_name,"
 	address_columns := "addresses.Lane_apt, addresses.City, addresses.State, addresses.Country, addresses.Latitude, addresses.Longitude"
 
