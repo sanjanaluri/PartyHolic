@@ -213,8 +213,7 @@ func AttendParty(c *gin.Context) {
 
 	sql_connection, _ := sql.Open("mysql", "root:@tcp(0.0.0.0:3306)/partyholic")
 	sql_connection.QueryRow("select count(distinct user_id) from attendee_lists where party_id=?", attendee.Party_id).Scan(&count)
-	fmt.Println(count)
-	sql_connection.Query("update parties set attendee_count = ? where party_id =?", count+1, attendee.Party_id)
+	sql_connection.Query("update parties set attendee_count = ? where party_id =?", count, attendee.Party_id)
 	defer sql_connection.Close()
 
 }
