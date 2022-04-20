@@ -72,7 +72,7 @@ type Parties struct {
 	Description string `json:"Description"`
 
 	Image_id       string `json:"image_id"`
-	Attendee_count int    `json:"interested_people"`
+	Attendee_count int    `json:"attendee_count"`
 
 	Longitude float64 `json:"Longitude"`
 	Latitude  float64 `json:"Latitude"`
@@ -149,7 +149,7 @@ type FullPartyDetails struct {
 	Description string `json:"Description"`
 
 	Image_id       string `json:"image_id"`
-	Attendee_count int    `json:"interested_people"`
+	Attendee_count int    `json:"attendee_count"`
 }
 
 type AttendeeList struct {
