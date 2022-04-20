@@ -192,7 +192,6 @@ func TestDeletePartyAPI(t *testing.T) {
 	c.Request.Header.Set("X-Forwarded-For", "127.0.0.1")
 
 	controllers.GetParty(c)
-	//assert.Equal(t, 200, w.Code)
 	var response gin.H
 	err := json.Unmarshal(w.Body.Bytes(), &response)
 	if err != nil {
@@ -201,7 +200,6 @@ func TestDeletePartyAPI(t *testing.T) {
 
 	_, exists := response["data"]
 	fmt.Println("")
-	// Make some assertions on the correctness of the response.
 
 	assert.Equal(t, exists, true)
 }
@@ -219,7 +217,6 @@ func TestAttendPartyAPI(t *testing.T) {
 	c.Request.Header.Set("X-Forwarded-For", "127.0.0.1")
 
 	controllers.GetAddresses(c)
-	//assert.Equal(t, 200, w.Code)
 	var response gin.H
 	err := json.Unmarshal(w.Body.Bytes(), &response)
 	if err != nil {
@@ -228,7 +225,6 @@ func TestAttendPartyAPI(t *testing.T) {
 
 	_, exists := response["message"]
 	fmt.Println("")
-	// Make some assertions on the correctness of the response.
 
 	assert.Equal(t, exists, true)
 }
@@ -247,7 +243,6 @@ func CancelAttendanceAPI(t *testing.T) {
 	c.Request.Header.Set("X-Forwarded-For", "127.0.0.1")
 
 	controllers.CancelAttendance(c)
-	//assert.Equal(t, 200, w.Code)
 	var response gin.H
 	err := json.Unmarshal(w.Body.Bytes(), &response)
 	if err != nil {
@@ -256,7 +251,6 @@ func CancelAttendanceAPI(t *testing.T) {
 
 	_, exists := response["message"]
 	fmt.Println("")
-	// Make some assertions on the correctness of the response.
 
 	assert.Equal(t, exists, true)
 }
@@ -275,7 +269,6 @@ func UserLoginAPI(t *testing.T) {
 	c.Request.Header.Set("X-Forwarded-For", "127.0.0.1")
 
 	controllers.UserLogin(c)
-	//assert.Equal(t, 200, w.Code)
 	var response gin.H
 	err := json.Unmarshal(w.Body.Bytes(), &response)
 	if err != nil {
@@ -284,7 +277,6 @@ func UserLoginAPI(t *testing.T) {
 
 	_, exists := response["message"]
 	fmt.Println("")
-	// Make some assertions on the correctness of the response.
 
 	assert.Equal(t, exists, true)
 }
