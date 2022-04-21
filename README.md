@@ -83,17 +83,19 @@ https://documenter.getpostman.com/view/20593405/Uyr7JJp5#intro
 
 ## Demo Video Link
 
-this video is too big to embed. see it here -
 
-https://www.dropbox.com/s/dkwqmo6g375wtrl/Demo.MOV?dl=0
+
+https://user-images.githubusercontent.com/15062925/164345506-ae1a1202-0774-4cd1-88a1-efb36bf6024e.mp4
+
 
 
 
 ## Frontend Testing Video Link
 
-this video is too big to embed. see it here -
 
-https://www.dropbox.com/s/cy2j9erz868xgi5/Frontend-test.mov?dl=0
+
+https://user-images.githubusercontent.com/15062925/164345520-582d44e9-78d3-4e89-b736-1b7e2897a517.mp4
+
 
 
 
